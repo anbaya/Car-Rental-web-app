@@ -1,0 +1,133 @@
+import type { Vehicle } from '@/types';
+
+export const cars: Vehicle[] = [
+  {
+    id: 'dacia-duster',
+    name: 'Dacia Duster',
+    type: 'SUV',
+    pricePerDay: 350,
+    transmission: 'Automatic',
+    seats: 5,
+    doors: 5,
+    fuel: 'Diesel',
+    hasAc: true,
+    images: ['/images/cars/dacia-duster-1.jpg'],
+    description:
+      'A robust and reliable SUV perfect for exploring Marrakech and the surrounding Atlas Mountains. Comfortable for families and small groups.',
+    included: ['Basic insurance', 'Unlimited mileage', 'Airport pickup available'],
+    conditions: [
+      'Minimum rental period: 1 day',
+      'Security deposit: 3,000 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 21',
+    ],
+  },
+  {
+    id: 'renault-clio',
+    name: 'Renault Clio',
+    type: 'Economy',
+    pricePerDay: 200,
+    transmission: 'Manual',
+    seats: 5,
+    doors: 5,
+    fuel: 'Petrol',
+    hasAc: true,
+    images: ['/images/cars/renault-clio-1.jpg'],
+    description:
+      'A compact and fuel-efficient city car ideal for navigating the streets of Marrakech. Easy to park and budget-friendly.',
+    included: ['Basic insurance', 'Unlimited mileage'],
+    conditions: [
+      'Minimum rental period: 1 day',
+      'Security deposit: 2,000 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 21',
+    ],
+  },
+  {
+    id: 'volkswagen-golf',
+    name: 'Volkswagen Golf',
+    type: 'Sedan',
+    pricePerDay: 280,
+    transmission: 'Automatic',
+    seats: 5,
+    doors: 5,
+    fuel: 'Diesel',
+    hasAc: true,
+    images: ['/images/cars/vw-golf-1.jpg'],
+    description:
+      'A premium and comfortable saloon offering a smooth ride across Morocco. Excellent for business trips and airport transfers.',
+    included: ['Basic insurance', 'Unlimited mileage', 'Airport pickup available'],
+    conditions: [
+      'Minimum rental period: 1 day',
+      'Security deposit: 2,500 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 23',
+    ],
+  },
+  {
+    id: 'mercedes-vito',
+    name: 'Mercedes Vito',
+    type: 'Van',
+    pricePerDay: 600,
+    transmission: 'Automatic',
+    seats: 8,
+    doors: 4,
+    fuel: 'Diesel',
+    hasAc: true,
+    images: ['/images/cars/mercedes-vito-1.jpg'],
+    description:
+      'Spacious and powerful minivan, perfect for group travel, family trips, and airport transfers with large luggage.',
+    included: ['Basic insurance', 'Unlimited mileage', 'Airport pickup available'],
+    conditions: [
+      'Minimum rental period: 2 days',
+      'Security deposit: 5,000 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 25',
+    ],
+  },
+  {
+    id: 'dacia-sandero',
+    name: 'Dacia Sandero',
+    type: 'Economy',
+    pricePerDay: 180,
+    transmission: 'Manual',
+    seats: 5,
+    doors: 5,
+    fuel: 'Petrol',
+    hasAc: true,
+    images: ['/images/cars/dacia-sandero-1.jpg'],
+    description:
+      'The most affordable option in our fleet — reliable, easy to drive, and perfect for short city trips in Marrakech.',
+    included: ['Basic insurance', 'Unlimited mileage'],
+    conditions: [
+      'Minimum rental period: 1 day',
+      'Security deposit: 1,500 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 21',
+    ],
+  },
+  {
+    id: 'toyota-land-cruiser',
+    name: 'Toyota Land Cruiser',
+    type: 'SUV',
+    pricePerDay: 900,
+    transmission: 'Automatic',
+    seats: 7,
+    doors: 5,
+    fuel: 'Diesel',
+    hasAc: true,
+    images: ['/images/cars/land-cruiser-1.jpg'],
+    description:
+      'Our flagship 4x4 — built for desert excursions, Atlas Mountain treks, and long-distance travel across Morocco in ultimate comfort.',
+    included: ['Full insurance', 'Unlimited mileage', 'Airport pickup available', 'GPS included'],
+    conditions: [
+      'Minimum rental period: 2 days',
+      'Security deposit: 8,000 DH',
+      'Required: valid driving licence + passport/ID',
+      'Minimum driver age: 25',
+    ],
+  },
+];
+
+export const getCarBySlug = (slug: string): Vehicle | undefined =>
+  cars.find((car) => car.id === slug);
