@@ -385,6 +385,12 @@ summary:focus-visible {
   z-index: 40;
   background: transparent;
   color: #fff;
+  mix-blend-mode: difference;
+}
+
+.nav .btn-outline {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .nav .wrap {
@@ -554,7 +560,7 @@ summary:focus-visible {
 
 .hero-in {
   max-width: 600px;
-  color: #fff;
+  color: var(--bone);
 }
 
 .hero h1 {
@@ -572,7 +578,7 @@ summary:focus-visible {
   max-width: 46ch;
   margin-top: 26px;
   font-size: 18px;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .hero-ctas {
@@ -583,14 +589,13 @@ summary:focus-visible {
 }
 
 .hero-ctas .btn-outline {
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #fff;
+  border-color: rgba(0, 0, 0, 0.3);
+  color: var(--bone);
 }
 
 .hero-ctas .btn-outline:hover {
-  border-color: #fff;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--bone);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .hero-in>* {
@@ -1606,6 +1611,34 @@ section {
   color: var(--brass-light);
   max-width: 50ch;
   line-height: 1.5;
+}
+
+@keyframes slow-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-wheel {
+  animation: slow-spin 25s linear infinite;
+}
+
+@keyframes roll-in-left {
+  0% {
+    transform: translateX(-150vw);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.roll-in-animation {
+  animation: roll-in-left 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* filter bar */

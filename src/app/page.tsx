@@ -65,7 +65,14 @@ const REVIEWS = [
 ];
 
 export default function HomePage() {
+  const [scrollY, setScrollY] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -101,12 +108,10 @@ export default function HomePage() {
   return (
     <main>
       <section className="hero">
-        <div className="hero-bg">
-          <video src="/images/hero/hero.mp4" autoPlay loop muted playsInline className="hero-video" poster="/images/hero/hero.png"></video>
-          <div className="hero-overlay"></div>
+        <div className="hero-bg" style={{ transform: `translateY(${scrollY * 0.4}px)`, background: 'var(--ink)' }}>
         </div>
-        <div className="wrap">
-          <div className="hero-in">
+        <div className="wrap" style={{ position: 'relative' }}>
+          <div className="hero-in" style={{ position: 'relative', zIndex: 2 }}>
             <h1 className="reveal delay-1"><span>Arrive in Marrakech.</span><span>Leave in style.</span></h1>
             <p className="hero-sub reveal delay-2">Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
               up at the airport, your riad, or right in the medina.</p>
@@ -118,6 +123,11 @@ export default function HomePage() {
                 </svg>
                 Message us on WhatsApp
               </a>
+            </div>
+          </div>
+          <div className="reveal delay-2" style={{ position: 'absolute', right: '-150px', top: '40%', transform: `translateY(-50%) translateX(${scrollY * 0.3}px)`, opacity: 1, zIndex: 1, pointerEvents: 'none', transition: 'transform 0.1s ease-out' }}>
+            <div className="roll-in-animation">
+              <img src="/images/wheel.png" alt="" className="spin-wheel" style={{ width: '750px', height: '750px', objectFit: 'contain' }} />
             </div>
           </div>
         </div>

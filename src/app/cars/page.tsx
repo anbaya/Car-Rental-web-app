@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const CARS = [
   {
@@ -73,6 +73,15 @@ const CARS = [
 ];
 
 export default function CarsPage() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -95,10 +104,17 @@ export default function CarsPage() {
   return (
     <main className="bg-bone">
       {/* Quiet Luxury Header */}
-      <section className="cars-header">
-        <div className="wrap">
-          <h1 className="reveal">The Fleet</h1>
-          <p className="reveal delay-1">Explore our curated collection of well-maintained vehicles.</p>
+      <section className="cars-header" style={{ overflow: 'hidden' }}>
+        <div className="wrap" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative' }}>
+          <div style={{ position: 'relative', zIndex: 2 }}>
+            <h1 className="reveal">The Fleet</h1>
+            <p className="reveal delay-1">Explore our curated collection of well-maintained vehicles.</p>
+          </div>
+          <div className="reveal delay-2" style={{ position: 'absolute', right: '-100px', top: '50%', transform: `translateY(-50%) translateX(-${scrollY * 0.6}px)`, opacity: 1, zIndex: 1, pointerEvents: 'none', transition: 'transform 0.1s ease-out' }}>
+            <div className="roll-in-animation">
+              <img src="/images/wheel.png" alt="" className="spin-wheel" style={{ width: '550px', height: '550px', objectFit: 'contain' }} />
+            </div>
+          </div>
         </div>
       </section>
 
