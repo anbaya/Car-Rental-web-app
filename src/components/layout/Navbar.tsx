@@ -19,8 +19,8 @@ export default function Navbar() {
           <nav className="nav-links">
             <a href="/">Home</a>
             <a href="/cars">Cars</a>
-            <a href="#about">About</a>
-            <a href="#location">Contact</a>
+            <a href="/about">About</a>
+            <a href="/contact">Contact</a>
           </nav>
           <div className="nav-right">
             <div className="lang-switch">
@@ -45,8 +45,8 @@ export default function Navbar() {
         <div id="mobilePanel" className={`mobile-panel ${isOpen ? 'open' : ''}`}>
           <a href="/">Home</a>
           <a href="/cars">Cars</a>
-          <a href="#about">About</a>
-          <a href="#location">Contact</a>
+          <a href="/about">About</a>
+          <a href="/contact">Contact</a>
         </div>
       </header>
     </>
