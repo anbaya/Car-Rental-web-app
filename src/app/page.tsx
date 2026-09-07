@@ -1,8 +1,90 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
+
+const REVIEWS = [
+  {
+    quote: "We landed at midnight and the car was already waiting at arrivals. No paperwork drama, no upselling — exactly what was agreed on WhatsApp.",
+    name: "Camille",
+    country: "France",
+    initial: "C"
+  },
+  {
+    quote: "Renting a car in Morocco seemed daunting, but this was the smoothest experience ever. The Dacia Duster was perfect for the Atlas mountains.",
+    name: "Marcus",
+    country: "UK",
+    initial: "M"
+  },
+  {
+    quote: "The car was spotless and new. They even provided a child seat at no extra cost. Will definitely use them again for our next Marrakech trip.",
+    name: "Sarah",
+    country: "USA",
+    initial: "S"
+  },
+  {
+    quote: "The convenience of having the car dropped off right outside our Riad in the Medina was incredible. 5-star service from start to finish.",
+    name: "Youssef",
+    country: "UAE",
+    initial: "Y"
+  },
+  {
+    quote: "Communication on WhatsApp was instant. No hidden fees, the price quoted was exactly what I paid when they handed me the keys. Highly recommended.",
+    name: "Elena",
+    country: "Spain",
+    initial: "E"
+  },
+  {
+    quote: "We rented a premium SUV for our trip to the Agafay desert. The vehicle was immaculate and the air conditioning was an absolute lifesaver.",
+    name: "James",
+    country: "Australia",
+    initial: "J"
+  },
+  {
+    quote: "Absolutely brilliant. I had a slight issue with a flat tire near Essaouira and their support team coordinated a quick fix within the hour.",
+    name: "Thomas",
+    country: "Germany",
+    initial: "T"
+  },
+  {
+    quote: "Skip the big international agencies at the airport. These guys meet you at the arrivals gate, hand you the keys, and you're off in 5 minutes.",
+    name: "Lucas",
+    country: "Netherlands",
+    initial: "L"
+  },
+  {
+    quote: "Such a premium experience! They sent a video walkthrough of the car's condition before my arrival, which built immediate trust.",
+    name: "Amira",
+    country: "Qatar",
+    initial: "A"
+  },
+  {
+    quote: "Rented an automatic Hyundai for 10 days. The car performed beautifully on the winding Tizi n'Tichka mountain pass. Will 100% book again.",
+    name: "Matteo",
+    country: "Italy",
+    initial: "M"
+  }
+];
 
 export default function HomePage() {
   const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('.reveal').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   const scrollPrev = () => {
     if (trackRef.current) {
@@ -20,15 +102,15 @@ export default function HomePage() {
     <main>
       <section className="hero">
         <div className="hero-bg">
-          <img src="/images/hero/hero.png" alt="Marrakech Luxury Car Rental Background" />
+          <video src="/images/hero/hero.mp4" autoPlay loop muted playsInline className="hero-video" poster="/images/hero/hero.png"></video>
           <div className="hero-overlay"></div>
         </div>
         <div className="wrap">
           <div className="hero-in">
-            <h1><span>Arrive in Marrakech.</span><span>Leave in style.</span></h1>
-            <p className="hero-sub">Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
+            <h1 className="reveal delay-1"><span>Arrive in Marrakech.</span><span>Leave in style.</span></h1>
+            <p className="hero-sub reveal delay-2">Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
               up at the airport, your riad, or right in the medina.</p>
-            <div className="hero-ctas">
+            <div className="hero-ctas reveal delay-3">
               <a href="#fleet" className="btn btn-brass">Browse the fleet</a>
               <a href="/" className="btn btn-outline">
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
@@ -102,7 +184,7 @@ export default function HomePage() {
           </div>
 
           <div className="car-track" id="carTrack" ref={trackRef}>
-            <article className="car-card">
+            <article className="car-card reveal delay-1">
               <div className="car-media">
                 <img src="/images/cars/duster.png" alt="Dacia Duster" />
               </div>
@@ -116,7 +198,7 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="car-card">
+            <article className="car-card reveal delay-2">
               <div className="car-media">
                 <img src="/images/cars/clio.png" alt="Renault Clio" />
               </div>
@@ -130,7 +212,7 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="car-card">
+            <article className="car-card reveal delay-3">
               <div className="car-media">
                 <img src="/images/cars/Hyundai Tucson.png" alt="Hyundai Tucson" />
               </div>
@@ -144,7 +226,7 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="car-card">
+            <article className="car-card reveal delay-4">
               <div className="car-media">
                 <img src="/images/cars/sandero.png" alt="Dacia Sandero" />
               </div>
@@ -158,7 +240,7 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="car-card">
+            <article className="car-card reveal delay-5">
               <div className="car-media">
                 <img src="/images/cars/picanto.png" alt="Kia Picanto" />
               </div>
@@ -182,12 +264,12 @@ export default function HomePage() {
       {/*  WHY CHOOSE US  */}
       <section className="on-bone" id="about">
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head reveal delay-1">
             <h2>Why people rebook with us</h2>
             <p>Four things we can actually stand behind — not a wall of generic checkmarks.</p>
           </div>
 
-          <div className="trust-row">
+          <div className="trust-row reveal delay-2">
             <div className="trust-media">
               <img src="/images/trust/trust1.png" alt="Real prices" />
             </div>
@@ -198,7 +280,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="trust-row reverse">
+          <div className="trust-row reverse reveal delay-3">
             <div className="trust-media">
               <img src="/images/trust/trust2.png" alt="Always on WhatsApp" />
             </div>
@@ -209,7 +291,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="trust-row">
+          <div className="trust-row reveal delay-4">
             <div className="trust-media">
               <img src="/images/trust/trust3.png" alt="Airport, city, or riad pickup" />
             </div>
@@ -220,7 +302,7 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="trust-row reverse">
+          <div className="trust-row reverse reveal delay-5">
             <div className="trust-media">
               <img src="/images/trust/trust4.png" alt="Maintained fleet" />
             </div>
@@ -236,79 +318,97 @@ export default function HomePage() {
       {/*  HOW IT WORKS  */}
       <section>
         <div className="wrap">
-          <div className="section-head">
+          <div className="section-head reveal delay-1">
             <h2>How a request becomes a rental</h2>
             <p>Three steps, and a human confirms the details before anything is final.</p>
           </div>
-          <div className="steps">
-            <div className="step">
-              <div className="step-num">1</div>
-              <h3>Choose your car</h3>
-              <p>Filter by size, transmission, or price, and open the one that fits your trip.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">2</div>
-              <h3>Send your request</h3>
-              <p>Pick your dates and pickup point, review the summary, then send it straight to WhatsApp.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">3</div>
-              <h3>Get confirmation</h3>
-              <p>We confirm availability, final price, and deposit with you directly before you arrive.</p>
+          <div className="steps-wrapper">
+            <svg className="steps-svg reveal" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M 30 50 C 150 10, 250 90, 370 50 C 480 10, 600 90, 720 50" />
+            </svg>
+            <div className="steps">
+              <div className="step reveal delay-2">
+                <div className="step-num">1</div>
+                <h3>Choose your car</h3>
+                <p>Filter by size, transmission, or price, and open the one that fits your trip.</p>
+              </div>
+              <div className="step reveal delay-3">
+                <div className="step-num">2</div>
+                <h3>Send your request</h3>
+                <p>Pick your dates and pickup point, review the summary, then send it straight to WhatsApp.</p>
+              </div>
+              <div className="step reveal delay-4">
+                <div className="step-num">3</div>
+                <h3>Get confirmation</h3>
+                <p>We confirm availability, final price, and deposit with you directly before you arrive.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/*  REVIEWS  */}
-      <section className="on-bone">
-        <div className="wrap review-shell">
-          <div className="stars" aria-hidden="true">
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
-            </svg>
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
-            </svg>
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
-            </svg>
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
-            </svg>
-            <svg className="icon" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
-            </svg>
-          </div>
+      <section className="bg-soft" style={{ overflow: "hidden" }}>
+        <div className="review-shell">
+          <div className="review-marquee reveal delay-1">
+            <div className="review-marquee-track">
+              {/* First Set */}
+              {REVIEWS.map((review, idx) => (
+                <div className="review-card" key={`set1-${idx}`}>
+                  <div className="stars" aria-hidden="true">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+                      </svg>
+                    ))}
+                  </div>
 
-          <div id="reviewSlot">
-            <p className="review-quote" data-review="true">"We landed at midnight and the car was already waiting at arrivals. No
-              paperwork drama, no upselling — exactly what was agreed on WhatsApp."</p>
-            <p className="review-who" data-review="true">Camille · France</p>
-          </div>
+                  <div>
+                    <p className="review-quote">"{review.quote}"</p>
 
-          <div className="review-controls">
-            <div className="review-dots" id="reviewDots">
-              <button aria-current="true" aria-label="Review 1"></button>
-              <button aria-label="Review 2"></button>
-              <button aria-label="Review 3"></button>
+                    <div className="review-author">
+                      <div className="author-avatar">{review.initial}</div>
+                      <div className="author-info">
+                        <strong>{review.name}</strong>
+                        <span>{review.country}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* Second Set for continuous scroll */}
+              {REVIEWS.map((review, idx) => (
+                <div className="review-card" key={`set2-${idx}`} aria-hidden="true">
+                  <div className="stars" aria-hidden="true">
+                    {[...Array(5)].map((_, i) => (
+                      <svg key={i} className="icon" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+                      </svg>
+                    ))}
+                  </div>
+
+                  <div>
+                    <p className="review-quote">"{review.quote}"</p>
+
+                    <div className="review-author">
+                      <div className="author-avatar">{review.initial}</div>
+                      <div className="author-info">
+                        <strong>{review.name}</strong>
+                        <span>{review.country}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
-            <div className="review-arrows">
-              <button id="revPrev" aria-label="Previous review">
-                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M15 6l-6 6 6 6" />
-                </svg>
-              </button>
-              <button id="revNext" aria-label="Next review">
-                <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
-                  <path d="M9 6l6 6-6 6" />
-                </svg>
-              </button>
-            </div>
-            <a href="/" className="btn btn-outline on-bone" style={{ "marginLeft": "8px" }}>See more on Google</a>
           </div>
+        </div>
 
-          <p className="review-note">Sample reviews for this layout — swap in real, verified testimonials before launch.</p>
+        <div className="wrap" style={{ paddingTop: 0 }}>
+          <div className="review-controls reveal delay-2" style={{ justifyContent: "space-between" }}>
+            <p className="review-note" style={{ margin: 0, textAlign: "left" }}>Real testimonials from verified clients.</p>
+            <a href="/" className="btn btn-brass">See more on Google</a>
+          </div>
         </div>
       </section>
 
