@@ -108,7 +108,7 @@ export default function HomePage() {
   return (
     <main>
       <section className="hero">
-        <div className="hero-bg" style={{ transform: `translateY(${scrollY * 0.4}px)`, background: 'var(--ink)' }}>
+        <div className="hero-bg" style={{ transform: `translateY(${scrollY * 0.4}px)` }}>
         </div>
         <div className="wrap" style={{ position: 'relative' }}>
           <div className="hero-in" style={{ position: 'relative', zIndex: 2 }}>
