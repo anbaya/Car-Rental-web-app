@@ -1,14 +1,23 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Fraunces, Manrope } from 'next/font/google';
 import './globals.css';
 import { defaultLocale } from '@/i18n/config';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
+import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
 
-const inter = Inter({
+const manrope = Manrope({
   variable: '--font-sans',
   subsets: ['latin'],
   display: 'swap',
 });
 
+const fraunces = Fraunces({
+  variable: '--font-serif',
+  subsets: ['latin'],
+  display: 'swap',
+  axes: ['SOFT', 'WONK'],
+});
 export const metadata: Metadata = {
   title: 'Marrakech Car Rental | Reliable Vehicles at Competitive Prices',
   description:
@@ -28,8 +37,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang={defaultLocale} className={inter.variable}>
-      <body>{children}</body>
+    <html lang={defaultLocale} className={`${manrope.variable} ${fraunces.variable}`}>
+      <body>
+        <Navbar />
+        <main className="main-content">
+          {children}
+        </main>
+        <Footer />
+        <FloatingWhatsApp />
+      </body>
     </html>
   );
 }

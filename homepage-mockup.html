@@ -1,0 +1,1677 @@
+<html lang="en">
+<!DOCTYPE html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atlas Drive — Car Rental in Marrakech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Manrope:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --ink: #FFFFFF;
+      --ink-soft: #F5F5F5;
+      --bone: #000000;
+      --bone-deep: #111111;
+      --parchment: #000000;
+      --ink-on-bone: #FFFFFF;
+      --brass: #222222;
+      --brass-light: #555555;
+      --teal: #EEEEEE;
+      --line-on-ink: rgba(0, 0, 0, 0.15);
+      --line-on-bone: rgba(255, 255, 255, 0.15);
+      --serif: 'Fraunces', Georgia, serif;
+      --sans: 'Manrope', -apple-system, sans-serif;
+      --wrap: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--ink);
+      color: var(--parchment);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .display {
+      font-family: var(--serif);
+      font-variation-settings: 'SOFT' 40, 'WONK' 0;
+      letter-spacing: -0.01em;
+      font-weight: 500;
+    }
+
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    button {
+      font-family: var(--sans);
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 2px solid var(--brass-light);
+      outline-offset: 3px;
+    }
+
+    /* ---------- buttons ---------- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn-brass {
+      background: var(--brass);
+      color: var(--ink);
+    }
+
+    .btn-brass:hover {
+      background: var(--brass-light);
+    }
+
+    .btn-outline {
+      border-color: var(--line-on-ink);
+      color: var(--parchment);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--brass-light);
+      color: var(--brass-light);
+    }
+
+    .btn-outline.on-bone {
+      border-color: var(--line-on-bone);
+      color: var(--ink-on-bone);
+    }
+
+    .btn-outline.on-bone:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: none;
+    }
+
+    /* ---------- nav ---------- */
+    .nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 40;
+      background: transparent;
+      color: #fff;
+    }
+
+    .nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      padding-bottom: 16px;
+      max-width: 1400px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-family: var(--serif);
+      font-size: 26px;
+    }
+
+    .brand svg {
+      width: 38px;
+      height: 38px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 48px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      opacity: .88;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: #fff;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .lang-switch {
+      display: flex;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: #fff;
+      opacity: .7;
+      border-radius: 6px;
+      padding: 4px 8px;
+    }
+
+    .lang-switch button[aria-current="true"] {
+      opacity: 1;
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .nav-burger {
+      display: none;
+      background: none;
+      border: none;
+      color: #fff;
+    }
+
+    .nav-burger .icon {
+      width: 26px;
+      height: 26px;
+    }
+
+    .nav .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .nav .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .mobile-panel {
+      display: none;
+    }
+
+    @media (max-width:860px) {
+      .nav-links {
+        display: none;
+      }
+
+      .lang-switch {
+        display: none;
+      }
+
+      .nav-burger {
+        display: block;
+      }
+
+      .mobile-panel.open {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 16px 32px 26px;
+        font-size: 17px;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(10px);
+        color: #fff;
+        border-radius: 0 0 12px 12px;
+      }
+
+      .mobile-panel a {
+        opacity: .9;
+        color: #fff;
+      }
+    }
+
+    /* ---------- hero ---------- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 140px;
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 100%);
+    }
+
+    .hero .wrap {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      padding-bottom: 140px;
+    }
+
+    .hero-in {
+      max-width: 600px;
+      color: #fff;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 5.6vw, 72px);
+      line-height: 1.04;
+    }
+
+    .hero h1 span {
+      display: block;
+    }
+
+    .hero-sub {
+      max-width: 46ch;
+      margin-top: 26px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .hero-ctas .btn-outline {
+      border-color: rgba(255, 255, 255, 0.3);
+      color: #fff;
+    }
+
+    .hero-ctas .btn-outline:hover {
+      border-color: #fff;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .hero-in>* {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: rise .7s ease forwards;
+    }
+
+    .hero-in>*:nth-child(1) {
+      animation-delay: .05s;
+    }
+
+    .hero-in>*:nth-child(2) {
+      animation-delay: .18s;
+    }
+
+    .hero-in>*:nth-child(3) {
+      animation-delay: .30s;
+    }
+
+    @keyframes rise {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fade {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+
+      .hero-in>* {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* search card overlapping hero edge */
+    .search-card {
+      position: relative;
+      margin-top: -72px;
+      z-index: 10;
+    }
+
+    .search-card .wrap {
+      padding-bottom: 0;
+    }
+
+    .search-inner {
+      background: var(--bone);
+      color: var(--ink-on-bone);
+      border: 1px solid var(--brass);
+      border-radius: 18px;
+      padding: 26px 30px;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr auto;
+      gap: 20px;
+      align-items: end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .field label {
+      font-size: 12.5px;
+      color: rgba(255, 255, 255, .65);
+    }
+
+    .field select,
+    .field input {
+      font-family: var(--sans);
+      font-size: 15px;
+      padding: 10px 4px;
+      border: none;
+      border-bottom: 1px solid var(--line-on-bone);
+      background: transparent;
+      color: var(--ink-on-bone);
+    }
+
+    .field select:focus,
+    .field input:focus {
+      outline: none;
+      border-color: var(--brass);
+    }
+
+    .search-card .btn {
+      height: 44px;
+      white-space: nowrap;
+    }
+
+    @media (max-width:900px) {
+      .hero .wrap {
+        grid-template-columns: 1fr;
+        padding-bottom: 60px;
+      }
+
+      .hero-art {
+        order: -1;
+        max-width: 340px;
+        margin: 0 auto;
+      }
+
+      .search-card {
+        margin-top: 0;
+        padding-top: 24px;
+      }
+
+      .search-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .search-inner .btn {
+        grid-column: 1 / -1;
+        justify-content: center;
+      }
+    }
+
+    /* ---------- marquee ---------- */
+    .marquee-section {
+      padding: 56px 0 30px;
+    }
+
+    .marquee-label {
+      font-size: 14px;
+      color: rgba(0, 0, 0, .75);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .marquee {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: scroll 32s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: #111111;
+      padding: 0 28px;
+      border-right: 1px solid var(--line-on-ink);
+      white-space: nowrap;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion:reduce) {
+      .marquee-track {
+        animation: none;
+      }
+    }
+
+    /* ---------- section basics ---------- */
+    section {
+      padding: 96px 0;
+    }
+
+    .on-bone {
+      background: var(--bone);
+      color: var(--ink-on-bone);
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 3.6vw, 44px);
+    }
+
+    .section-head p {
+      margin-top: 16px;
+      font-size: 17px;
+      opacity: .78;
+    }
+
+    .section-foot {
+      margin-top: 48px;
+    }
+
+    /* ---------- fleet carousel ---------- */
+    .fleet-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .carousel-nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    .carousel-nav button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--line-on-ink);
+      background: none;
+      color: var(--parchment);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-nav button:hover {
+      border-color: var(--brass);
+      color: var(--brass-light);
+    }
+
+    .car-track {
+      display: flex;
+      gap: 26px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+    }
+
+    .car-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .car-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      border: 1px solid var(--line-on-ink);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .car-media {
+      height: 220px;
+      background: linear-gradient(160deg, var(--ink-soft), var(--ink));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--line-on-ink);
+    }
+
+    .car-media img {
+      width: 95%;
+      height: 95%;
+      object-fit: contain;
+      transform: scale(1.1);
+    }
+
+    .car-body {
+      padding: 22px;
+    }
+
+    .car-body h3 {
+      font-size: 21px;
+    }
+
+    .car-type {
+      font-size: 13.5px;
+      color: rgba(0, 0, 0, .55);
+      margin-top: 4px;
+    }
+
+    .chip-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      font-size: 12.5px;
+      border: 1px solid var(--line-on-ink);
+      border-radius: 999px;
+      padding: 5px 12px;
+      color: rgba(0, 0, 0, .78);
+    }
+
+    .car-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+
+    .car-price {
+      font-family: var(--serif);
+      font-size: 18px;
+      color: var(--brass-light);
+    }
+
+    .car-link {
+      font-size: 14px;
+      border-bottom: 1px solid var(--brass);
+      color: var(--brass-light);
+    }
+
+    /* ---------- why choose us ---------- */
+    .trust-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 44px 0;
+      border-top: 1px solid var(--line-on-bone);
+    }
+
+    .trust-row:last-of-type {
+      border-bottom: 1px solid var(--line-on-bone);
+    }
+
+    .trust-row.reverse .trust-media {
+      order: 2;
+    }
+
+    .trust-media {
+      aspect-ratio: 4/3;
+      border: 1px solid var(--brass);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--parchment);
+      overflow: hidden;
+    }
+
+    .trust-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .trust-text h3 {
+      font-size: 26px;
+    }
+
+    .trust-text p {
+      margin-top: 14px;
+      font-size: 16px;
+      opacity: .8;
+      max-width: 42ch;
+    }
+
+    @media (max-width:820px) {
+
+      .trust-row,
+      .trust-row.reverse {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .trust-row.reverse .trust-media {
+        order: 0;
+      }
+    }
+
+    /* ---------- how it works ---------- */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      position: relative;
+    }
+
+    .steps::before {
+      content: "";
+      position: absolute;
+      top: 26px;
+      left: 8%;
+      right: 8%;
+      height: 1px;
+      background: var(--line-on-ink);
+    }
+
+    .step {
+      position: relative;
+    }
+
+    .step-num {
+      font-family: var(--serif);
+      font-size: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid var(--brass);
+      color: var(--brass-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ink);
+      position: relative;
+      z-index: 1;
+    }
+
+    .step h3 {
+      margin-top: 22px;
+      font-size: 22px;
+    }
+
+    .step p {
+      margin-top: 10px;
+      opacity: .75;
+      max-width: 32ch;
+    }
+
+    @media (max-width:780px) {
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 34px;
+      }
+
+      .steps::before {
+        display: none;
+      }
+    }
+
+    /* ---------- reviews ---------- */
+    .review-shell {
+      max-width: 760px;
+    }
+
+    .stars {
+      display: flex;
+      gap: 4px;
+      color: var(--brass);
+    }
+
+    .stars .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .review-quote {
+      font-family: var(--serif);
+      font-size: clamp(22px, 2.6vw, 30px);
+      line-height: 1.4;
+      margin-top: 22px;
+    }
+
+    .review-who {
+      margin-top: 22px;
+      font-size: 15px;
+      opacity: .7;
+    }
+
+    .review-controls {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .review-dots {
+      display: flex;
+      gap: 8px;
+    }
+
+    .review-dots button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid var(--brass);
+      background: transparent;
+      padding: 0;
+    }
+
+    .review-dots button[aria-current="true"] {
+      background: var(--brass);
+    }
+
+    .review-arrows {
+      display: flex;
+      gap: 10px;
+      margin-left: auto;
+    }
+
+    .review-arrows button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line-on-bone);
+      background: none;
+      color: var(--ink-on-bone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .review-arrows button:hover {
+      border-color: var(--brass);
+      color: var(--brass);
+    }
+
+    .review-note {
+      margin-top: 40px;
+      font-size: 13.5px;
+      opacity: .55;
+    }
+
+    /* ---------- location ---------- */
+    .location-section {
+      background: linear-gradient(180deg, var(--ink) 0%, var(--ink) 40%, var(--teal) 100%);
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .map-card {
+      border: 1px solid var(--line-on-ink);
+      border-radius: 4px;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-card .map-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .loc-list {
+      margin-top: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .loc-item {
+      display: flex;
+      gap: 14px;
+    }
+
+    .loc-item .icon {
+      width: 22px;
+      height: 22px;
+      color: var(--brass-light);
+      flex: none;
+      margin-top: 2px;
+    }
+
+    .loc-item p {
+      opacity: .85;
+    }
+
+    @media (max-width:860px) {
+      .location-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- faq ---------- */
+    .faq-list {
+      max-width: 760px;
+    }
+
+    .faq-item {
+      border-top: 1px solid var(--line-on-bone);
+    }
+
+    .faq-list .faq-item:last-child {
+      border-bottom: 1px solid var(--line-on-bone);
+    }
+
+    .faq-item summary {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 0;
+      font-family: var(--serif);
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item .icon {
+      width: 18px;
+      height: 18px;
+      color: var(--brass);
+      flex: none;
+      transition: transform .2s ease;
+    }
+
+    .faq-item[open] .icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-item p {
+      padding-bottom: 22px;
+      opacity: .8;
+      max-width: 58ch;
+    }
+
+    /* ---------- final cta ---------- */
+    .final-cta {
+      background: var(--brass);
+      color: var(--ink);
+    }
+
+    .final-cta .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .final-cta h2 {
+      font-size: clamp(30px, 3.8vw, 46px);
+      max-width: 12ch;
+    }
+
+    .final-cta .btn-outline {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .final-cta .btn-outline:hover {
+      background: var(--ink);
+      color: var(--brass-light);
+    }
+
+    .final-cta .btn-brass {
+      background: var(--ink);
+      color: var(--brass-light);
+    }
+
+    .final-cta .btn-brass:hover {
+      background: var(--ink-soft);
+    }
+
+    /* ---------- footer ---------- */
+    .footer {
+      padding: 80px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+
+    .footer-brand .brand {
+      margin-bottom: 14px;
+    }
+
+    .footer-brand p {
+      opacity: .65;
+      max-width: 32ch;
+      font-size: 14.5px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 14px;
+      opacity: .6;
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      font-size: 14.5px;
+    }
+
+    .footer-col a:hover {
+      color: var(--brass-light);
+    }
+
+    .footer-bottom {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line-on-ink);
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      opacity: .5;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    @media (max-width:780px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ---------- floating whatsapp ---------- */
+    .floating-cta {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brass);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 14px 18px;
+      font-weight: 600;
+      font-size: 14.5px;
+      box-shadow: 0 10px 26px rgba(255, 255, 255, 0.4);
+    }
+
+    .floating-cta:hover {
+      background: var(--brass-light);
+    }
+
+    .floating-cta .icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    @media (max-width:600px) {
+      .floating-cta span {
+        display: none;
+      }
+
+      .floating-cta {
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <a href="#" class="floating-cta" aria-label="Message us on WhatsApp">
+    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
+      <path d="M8.5 10.5c.3 2 2 3.7 4 4" stroke-linecap="round" />
+    </svg>
+    <span>WhatsApp us</span>
+  </a>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <a href="#" class="brand">
+        <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M6 30 L6 18 Q20 6 34 18 L34 30" />
+          <path d="M6 30 L34 30" />
+          <path d="M14 30 L14 22 Q20 17 26 22 L26 30" />
+        </svg>
+        Atlas Drive
+      </a>
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#fleet">Cars</a>
+        <a href="#about">About</a>
+        <a href="#location">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <div class="lang-switch">
+          <button aria-current="true">EN</button>
+          <button>FR</button>
+          <button>AR</button>
+        </div>
+        <a href="#" class="btn btn-outline">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
+          </svg>
+          WhatsApp
+        </a>
+        <button class="nav-burger" id="burgerBtn" aria-expanded="false" aria-controls="mobilePanel"
+          aria-label="Open menu">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel" id="mobilePanel">
+      <a href="#">Home</a>
+      <a href="#fleet">Cars</a>
+      <a href="#about">About</a>
+      <a href="#location">Contact</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="public/images/hero/hero.png" alt="Marrakech Luxury Car Rental Background" />
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="wrap">
+      <div class="hero-in">
+        <h1><span>Arrive in Marrakech.</span><span>Leave in style.</span></h1>
+        <p class="hero-sub">Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
+          up at the airport, your riad, or right in the medina.</p>
+        <div class="hero-ctas">
+          <a href="#fleet" class="btn btn-brass">Browse the fleet</a>
+          <a href="#" class="btn btn-outline">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
+            </svg>
+            Message us on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEARCH CARD -->
+  <div class="search-card">
+    <div class="wrap">
+      <form class="search-inner">
+        <div class="field">
+          <label for="pickup-loc">Pickup location</label>
+          <select id="pickup-loc">
+            <option>Marrakech Menara Airport</option>
+            <option>Marrakech city centre</option>
+            <option>Hotel / Riad delivery</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="pickup-date">Pickup date</label>
+          <input id="pickup-date" type="date">
+        </div>
+        <div class="field">
+          <label for="return-date">Return date</label>
+          <input id="return-date" type="date">
+        </div>
+        <button type="submit" class="btn btn-brass">Check availability</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLEET BRAND MARQUEE -->
+  <div class="marquee-section">
+    <div class="wrap">
+      <p class="marquee-label">The fleet includes</p>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>DACIA</span><span>RENAULT</span><span>HYUNDAI</span><span>KIA</span><span>PEUGEOT</span><span>VOLKSWAGEN</span><span>FIAT</span><span>TOYOTA</span>
+        <span>DACIA</span><span>RENAULT</span><span>HYUNDAI</span><span>KIA</span><span>PEUGEOT</span><span>VOLKSWAGEN</span><span>FIAT</span><span>TOYOTA</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED VEHICLES -->
+  <section id="fleet">
+    <div class="wrap">
+      <div class="fleet-head">
+        <div class="section-head" style="margin-bottom:0;">
+          <h2>Cars people actually ask for</h2>
+          <p>A working cross-section of the fleet — from city runabouts to airport-ready SUVs.</p>
+        </div>
+        <div class="carousel-nav">
+          <button id="carPrev" aria-label="Previous vehicles">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M15 6l-6 6 6 6" />
+            </svg>
+          </button>
+          <button id="carNext" aria-label="Next vehicles">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="car-track" id="carTrack">
+        <article class="car-card">
+          <div class="car-media">
+            <img src="public/images/cars/duster.png" alt="Dacia Duster" />
+          </div>
+          <div class="car-body">
+            <h3>Dacia Duster</h3>
+            <p class="car-type">SUV · crossover</p>
+            <div class="chip-row"><span class="chip">Automatic</span><span class="chip">5 seats</span><span
+                class="chip">Diesel</span></div>
+            <div class="car-foot"><span class="car-price">From 350 DH/day</span><a href="#" class="car-link">View
+                details</a></div>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <div class="car-media">
+            <img src="public/images/cars/clio.png" alt="Renault Clio" />
+          </div>
+          <div class="car-body">
+            <h3>Renault Clio</h3>
+            <p class="car-type">Compact hatchback</p>
+            <div class="chip-row"><span class="chip">Manual</span><span class="chip">5 seats</span><span
+                class="chip">Petrol</span></div>
+            <div class="car-foot"><span class="car-price">From 220 DH/day</span><a href="#" class="car-link">View
+                details</a></div>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <div class="car-media">
+            <img src="public/images/cars/Hyundai Tucson.png" alt="Hyundai Tucson" />
+          </div>
+          <div class="car-body">
+            <h3>Hyundai Tucson</h3>
+            <p class="car-type">SUV</p>
+            <div class="chip-row"><span class="chip">Automatic</span><span class="chip">5 seats</span><span
+                class="chip">Diesel</span></div>
+            <div class="car-foot"><span class="car-price">From 420 DH/day</span><a href="#" class="car-link">View
+                details</a></div>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <div class="car-media">
+            <img src="public/images/cars/sandero.png" alt="Dacia Sandero" />
+          </div>
+          <div class="car-body">
+            <h3>Dacia Sandero</h3>
+            <p class="car-type">Economy</p>
+            <div class="chip-row"><span class="chip">Manual</span><span class="chip">5 seats</span><span
+                class="chip">Petrol</span></div>
+            <div class="car-foot"><span class="car-price">From 190 DH/day</span><a href="#" class="car-link">View
+                details</a></div>
+          </div>
+        </article>
+
+        <article class="car-card">
+          <div class="car-media">
+            <img src="public/images/cars/picanto.png" alt="Kia Picanto" />
+          </div>
+          <div class="car-body">
+            <h3>Kia Picanto</h3>
+            <p class="car-type">City car</p>
+            <div class="chip-row"><span class="chip">Manual</span><span class="chip">4 seats</span><span
+                class="chip">Petrol</span></div>
+            <div class="car-foot"><span class="car-price">From 170 DH/day</span><a href="#" class="car-link">View
+                details</a></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-foot">
+        <a href="#" class="btn btn-outline">View all cars</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="on-bone" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Why people rebook with us</h2>
+        <p>Four things we can actually stand behind — not a wall of generic checkmarks.</p>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-media">
+          <img src="public/images/trust/trust1.png" alt="Real prices" />
+        </div>
+        <div class="trust-text">
+          <h3>Real prices, no surprises</h3>
+          <p>The price you're quoted on WhatsApp is the price you pay at pickup. Deposit and terms are explained before
+            you confirm, not after.</p>
+        </div>
+      </div>
+
+      <div class="trust-row reverse">
+        <div class="trust-media">
+          <img src="public/images/trust/trust2.png" alt="Always on WhatsApp" />
+        </div>
+        <div class="trust-text">
+          <h3>Always on WhatsApp</h3>
+          <p>A person answers, in French, English, or Arabic — usually within minutes, not a chatbot reading from a
+            script.</p>
+        </div>
+      </div>
+
+      <div class="trust-row">
+        <div class="trust-media">
+          <img src="public/images/trust/trust3.png" alt="Airport pickup" />
+        </div>
+        <div class="trust-text">
+          <h3>Airport, city, or riad pickup</h3>
+          <p>Land at Menara, walk out of your medina riad, or meet us in Gueliz — we come to wherever your trip actually
+            starts.</p>
+        </div>
+      </div>
+
+      <div class="trust-row reverse">
+        <div class="trust-media">
+          <img src="public/images/trust/trust4.png" alt="Maintained fleet" />
+        </div>
+        <div class="trust-text">
+          <h3>A fleet that's actually maintained</h3>
+          <p>Every car is serviced and inspected between rentals — no rolling into your holiday with a check-engine
+            light already on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <h2>How a request becomes a rental</h2>
+        <p>Three steps, and a human confirms the details before anything is final.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Choose your car</h3>
+          <p>Filter by size, transmission, or price, and open the one that fits your trip.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Send your request</h3>
+          <p>Pick your dates and pickup point, review the summary, then send it straight to WhatsApp.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Get confirmation</h3>
+          <p>We confirm availability, final price, and deposit with you directly before you arrive.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="on-bone">
+    <div class="wrap review-shell">
+      <div class="stars" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+        </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+        </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+        </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+        </svg>
+        <svg class="icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.2-5.4 3.2 1.3-6-4.6-4.1 6.1-.6z" />
+        </svg>
+      </div>
+
+      <div id="reviewSlot">
+        <p class="review-quote" data-review>"We landed at midnight and the car was already waiting at arrivals. No
+          paperwork drama, no upselling — exactly what was agreed on WhatsApp."</p>
+        <p class="review-who" data-review>Camille · France</p>
+      </div>
+
+      <div class="review-controls">
+        <div class="review-dots" id="reviewDots">
+          <button aria-current="true" aria-label="Review 1"></button>
+          <button aria-label="Review 2"></button>
+          <button aria-label="Review 3"></button>
+        </div>
+        <div class="review-arrows">
+          <button id="revPrev" aria-label="Previous review">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M15 6l-6 6 6 6" />
+            </svg>
+          </button>
+          <button id="revNext" aria-label="Next review">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+              <path d="M9 6l6 6-6 6" />
+            </svg>
+          </button>
+        </div>
+        <a href="#" class="btn btn-outline on-bone" style="margin-left:8px;">See more on Google</a>
+      </div>
+
+      <p class="review-note">Sample reviews for this layout — swap in real, verified testimonials before launch.</p>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section class="location-section" id="location">
+    <div class="wrap location-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:26px;">
+          <h2>Based in Marrakech, ready at the airport</h2>
+          <p>City pickups, Menara Airport meet-and-greet, and hotel/riad delivery across the medina and Gueliz.</p>
+        </div>
+        <div class="loc-list">
+          <div class="loc-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 5h16v11H9l-5 4V5z" />
+            </svg>
+            <p>+212 6XX XX XX XX — WhatsApp answered daily, 7am–11pm</p>
+          </div>
+          <div class="loc-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M12 3c4 3 7 6 7 10a7 7 0 0 1-14 0c0-4 3-7 7-10z" />
+            </svg>
+            <p>Route de l'Aéroport, Marrakech — 10 minutes from Menara</p>
+          </div>
+          <div class="loc-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
+            </svg>
+            <p>Airport pickup is free after a two-day minimum rental</p>
+          </div>
+        </div>
+      </div>
+      <div class="map-card">
+        <img src="public/images/location.png" alt="Map of Marrakech" class="map-image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="on-bone">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Common questions</h2>
+        <p>The short version — the full list lives on the FAQ page.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>What documents do I need to rent a car?<svg class="icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.6">
+              <path d="M12 5v14M5 12h14" />
+            </svg></summary>
+          <p>A valid driver's licence held for at least one year, your passport, and a card or cash deposit at pickup.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>Is airport pickup really available at any hour?<svg class="icon" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="1.6">
+              <path d="M12 5v14M5 12h14" />
+            </svg></summary>
+          <p>Yes — send your flight number in the request and someone will be waiting at arrivals, whatever time you
+            land.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Can I rent for just one day?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.6">
+              <path d="M12 5v14M5 12h14" />
+            </svg></summary>
+          <p>Yes, single-day rentals are available on most of the fleet, though a few vehicles carry a two-day minimum.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary>What happens to my deposit?<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.6">
+              <path d="M12 5v14M5 12h14" />
+            </svg></summary>
+          <p>It's held as a hold on your card or in cash, and released in full at drop-off once the car's checked over.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <div class="wrap">
+      <h2>Ready when you are.</h2>
+      <div class="hero-ctas" style="margin-top:0;">
+        <a href="#fleet" class="btn btn-brass">Browse the fleet</a>
+        <a href="#" class="btn btn-outline">Message us on WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="brand">
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+              <path d="M6 30 L6 18 Q20 6 34 18 L34 30" />
+              <path d="M6 30 L34 30" />
+              <path d="M14 30 L14 22 Q20 17 26 22 L26 30" />
+            </svg>
+            Atlas Drive
+          </a>
+          <p>Car rental in Marrakech, built around a request-and-confirm booking model — no surprise charges, no fine
+            print you find out about later.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="#fleet">Cars</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#location">Contact</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>+212 6XX XX XX XX</li>
+            <li>hello@atlasdrive.ma</li>
+            <li>Route de l'Aéroport, Marrakech</li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li>Instagram</li>
+            <li>Facebook</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Atlas Drive. All rights reserved.</span>
+        <span>Marrakech, Morocco</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // mobile nav
+    var burger = document.getElementById('burgerBtn');
+    var panel = document.getElementById('mobilePanel');
+    burger.addEventListener('click', function () {
+      var open = panel.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open);
+    });
+
+    // fleet carousel (native scroll, user-triggered only)
+    var track = document.getElementById('carTrack');
+    document.getElementById('carPrev').addEventListener('click', function () {
+      track.scrollBy({ left: -332, behavior: 'smooth' });
+    });
+    document.getElementById('carNext').addEventListener('click', function () {
+      track.scrollBy({ left: 332, behavior: 'smooth' });
+    });
+
+    // reviews carousel
+    var reviews = [
+      {
+        quote: "We landed at midnight and the car was already waiting at arrivals. No paperwork drama, no upselling — exactly what was agreed on WhatsApp.",
+        who: "Camille · France"
+      },
+      {
+        quote: "Booked a Duster for a week around the Atlas mountains. It had clearly just been serviced, and the deposit was returned the same day we dropped it off.",
+        who: "Marcus · Germany"
+      },
+      {
+        quote: "Sent a WhatsApp message at 9pm and had a confirmed price back in about ten minutes. Delivery to our riad in the medina was right on time.",
+        who: "Sofia · Portugal"
+      }
+    ];
+    var revIndex = 0;
+    var quoteEl = document.querySelector('[data-review].review-quote');
+    var whoEl = document.querySelector('[data-review].review-who');
+    var dots = document.querySelectorAll('#reviewDots button');
+
+    function renderReview(i) {
+      quoteEl.textContent = '"' + reviews[i].quote + '"';
+      whoEl.textContent = reviews[i].who;
+      dots.forEach(function (d, di) { d.setAttribute('aria-current', di === i); });
+    }
+    document.getElementById('revPrev').addEventListener('click', function () {
+      revIndex = (revIndex - 1 + reviews.length) % reviews.length;
+      renderReview(revIndex);
+    });
+    document.getElementById('revNext').addEventListener('click', function () {
+      revIndex = (revIndex + 1) % reviews.length;
+      renderReview(revIndex);
+    });
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () { revIndex = i; renderReview(i); });
+    });
+  </script>
+</body>
+
+</html>
