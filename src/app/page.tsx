@@ -111,7 +111,7 @@ export default function HomePage() {
             <p className="hero-sub reveal delay-2">Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
               up at the airport, your riad, or right in the medina.</p>
             <div className="hero-ctas reveal delay-3">
-              <a href="#fleet" className="btn btn-brass">Browse the fleet</a>
+              <a href="/cars" className="btn btn-brass">Browse the fleet</a>
               <a href="/" className="btn btn-outline">
                 <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                   <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
@@ -256,7 +256,7 @@ export default function HomePage() {
           </div>
 
           <div className="section-foot">
-            <a href="/" className="btn btn-outline">View all cars</a>
+            <a href="/cars" className="btn btn-outline">View all cars</a>
           </div>
         </div>
       </section>
@@ -496,7 +496,7 @@ export default function HomePage() {
         <div className="wrap">
           <h2>Ready when you are.</h2>
           <div className="hero-ctas" style={{ "marginTop": "0" }}>
-            <a href="#fleet" className="btn btn-brass">Browse the fleet</a>
+            <a href="/cars" className="btn btn-brass">Browse the fleet</a>
             <a href="/" className="btn btn-outline">Message us on WhatsApp</a>
           </div>
         </div>

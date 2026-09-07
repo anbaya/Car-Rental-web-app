@@ -102,32 +102,33 @@ export default function CarsPage() {
         </div>
       </section>
 
-      {/* FILTER BAR & MARQUEE BANNER */}
-      <div className="filter-bar">
-        <div className="brands-marquee" style={{ color: 'var(--ink)', paddingBottom: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', marginBottom: '24px' }}>
-          <div className="marquee">
-            <div className="marquee-track">
-              <span>MERCEDES-BENZ</span>
-              <span>BMW</span>
-              <span>AUDI</span>
-              <span>PORSCHE</span>
-              <span>LAND ROVER</span>
-              <span>FERRARI</span>
-              <span>LAMBORGHINI</span>
-              <span>ROLLS ROYCE</span>
-              {/* Duplicated for seamless scrolling */}
-              <span>MERCEDES-BENZ</span>
-              <span>BMW</span>
-              <span>AUDI</span>
-              <span>PORSCHE</span>
-              <span>LAND ROVER</span>
-              <span>FERRARI</span>
-              <span>LAMBORGHINI</span>
-              <span>ROLLS ROYCE</span>
-            </div>
+      {/* MARQUEE BANNER */}
+      <div className="brands-marquee" style={{ background: 'var(--bone)', color: 'var(--ink)', paddingBottom: '16px', paddingTop: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+        <div className="marquee">
+          <div className="marquee-track">
+            <span>MERCEDES-BENZ</span>
+            <span>BMW</span>
+            <span>AUDI</span>
+            <span>PORSCHE</span>
+            <span>LAND ROVER</span>
+            <span>FERRARI</span>
+            <span>LAMBORGHINI</span>
+            <span>ROLLS ROYCE</span>
+            {/* Duplicated for seamless scrolling */}
+            <span>MERCEDES-BENZ</span>
+            <span>BMW</span>
+            <span>AUDI</span>
+            <span>PORSCHE</span>
+            <span>LAND ROVER</span>
+            <span>FERRARI</span>
+            <span>LAMBORGHINI</span>
+            <span>ROLLS ROYCE</span>
           </div>
         </div>
+      </div>
 
+      {/* FILTER BAR */}
+      <div className="filter-bar">
         <div className="wrap filter-inner">
           <div className="filter-group">
             <div className="filter-field">
