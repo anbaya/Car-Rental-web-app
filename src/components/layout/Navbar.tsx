@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +21,7 @@ export default function Navbar() {
             <a href="/">Home</a>
             <a href="/cars">Cars</a>
             <a href="/about">About</a>
+            <a href="/faq">FAQ</a>
             <a href="/contact">Contact</a>
           </nav>
           <div className="nav-right">
@@ -28,13 +30,13 @@ export default function Navbar() {
               <button>FR</button>
               <button>AR</button>
             </div>
-            <a href="/" className="btn btn-outline">
+            <a href={getGeneralWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
               </svg>
               WhatsApp
             </a>
-            <button className="nav-burger" id="burgerBtn" onClick={() => setIsOpen(!isOpen)} aria-expanded="false" aria-controls="mobilePanel"
+            <button className="nav-burger" id="burgerBtn" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="mobilePanel"
               aria-label="Open menu">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
@@ -46,6 +48,7 @@ export default function Navbar() {
           <a href="/">Home</a>
           <a href="/cars">Cars</a>
           <a href="/about">About</a>
+          <a href="/faq">FAQ</a>
           <a href="/contact">Contact</a>
         </div>
       </header>

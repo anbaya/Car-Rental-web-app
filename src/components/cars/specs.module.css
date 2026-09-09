@@ -1,0 +1,33 @@
+.specsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.specItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: var(--ink-soft);
+  border: 1px solid var(--line-on-ink);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--bone);
+  font-weight: 500;
+}
+
+.specIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--brass-light);
+}
+
+.specIcon svg {
+  width: 20px;
+  height: 20px;
+}

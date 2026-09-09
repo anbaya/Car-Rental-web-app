@@ -1,8 +1,12 @@
 'use client';
 
 import React, { useEffect } from 'react';
+import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
 export default function ContactPage() {
+  const WHATSAPP_NUMBER = "+212 600 00 00 00"; // Replace with real later
+  const WHATSAPP_LINK = getGeneralWhatsAppUrl();
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -33,19 +37,19 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Grid */}
-      <section className="on-bone">
+      <section className="bg-soft">
         <div className="wrap">
           <div className="contact-grid reveal delay-1">
 
             {/* WhatsApp — primary */}
-            <a href="https://wa.me/212600000000" className="contact-card contact-card--primary" target="_blank" rel="noopener noreferrer">
+            <a href={WHATSAPP_LINK} className="contact-card" target="_blank" rel="noopener noreferrer">
               <div className="contact-card-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
                 </svg>
               </div>
               <h3>WhatsApp</h3>
-              <p className="contact-card-detail">+212 6XX XX XX XX</p>
+              <p className="contact-card-detail">{WHATSAPP_NUMBER}</p>
               <p className="contact-card-sub">Fastest way to reach us. Answered daily, 7am–11pm.</p>
               <span className="contact-card-action">Open WhatsApp →</span>
             </a>
@@ -58,7 +62,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <h3>Phone</h3>
-              <p className="contact-card-detail">+212 6XX XX XX XX</p>
+              <p className="contact-card-detail">{WHATSAPP_NUMBER}</p>
               <p className="contact-card-sub">Same number as WhatsApp. French, English, Arabic.</p>
               <span className="contact-card-action">Call now →</span>
             </a>
@@ -96,18 +100,18 @@ export default function ContactPage() {
       {/* Hours */}
       <section className="stats-section">
         <div className="wrap">
-          <div className="stats-row reveal delay-1">
-            <div className="stat-item">
+          <div className="stats-row">
+            <div className="stat-item reveal delay-1">
               <span className="stat-number">7am–11pm</span>
               <span className="stat-label">WhatsApp hours</span>
             </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
+            <div className="stat-divider reveal delay-2"></div>
+            <div className="stat-item reveal delay-3">
               <span className="stat-number">FR · EN · AR</span>
               <span className="stat-label">Languages</span>
             </div>
-            <div className="stat-divider"></div>
-            <div className="stat-item">
+            <div className="stat-divider reveal delay-4"></div>
+            <div className="stat-item reveal delay-5">
               <span className="stat-number">~5 min</span>
               <span className="stat-label">Typical reply time</span>
             </div>
@@ -116,7 +120,7 @@ export default function ContactPage() {
       </section>
 
       {/* Map */}
-      <section className="on-bone">
+      <section className="bg-soft">
         <div className="wrap">
           <div className="section-head reveal delay-1">
             <h2>Find us in Marrakech</h2>
@@ -135,7 +139,7 @@ export default function ContactPage() {
           <p className="reveal delay-1" style={{ marginTop: '12px', opacity: 0.78, fontSize: '18px' }}>Send us a message and we&apos;ll get back to you with availability and pricing.</p>
           <div className="hero-ctas reveal delay-2" style={{ marginTop: '24px' }}>
             <a href="/cars" className="btn btn-brass">Browse the fleet</a>
-            <a href="https://wa.me/212600000000" className="btn btn-outline" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
+            <a href={WHATSAPP_LINK} className="btn btn-outline" target="_blank" rel="noopener noreferrer">Message us on WhatsApp</a>
           </div>
         </div>
       </section>

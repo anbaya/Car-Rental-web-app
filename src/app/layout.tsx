@@ -19,6 +19,7 @@ const fraunces = Fraunces({
   axes: ['SOFT', 'WONK'],
 });
 export const metadata: Metadata = {
+  metadataBase: new URL('https://atlasdrive-marrakech.com'),
   title: 'Marrakech Car Rental | Reliable Vehicles at Competitive Prices',
   description:
     'Rent a car in Marrakech at competitive prices. Airport pickup available. Browse our fleet of economy cars, SUVs, and vans. Send a request via WhatsApp in minutes.',

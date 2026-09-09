@@ -2,75 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 
-const CARS = [
-  {
-    id: 'tucson',
-    name: 'Hyundai Tucson',
-    type: 'Premium SUV',
-    image: '/images/cars/Hyundai Tucson.png',
-    transmission: 'Automatic',
-    seats: '5 seats',
-    fuel: 'Diesel',
-    price: '420',
-    description: 'A masterpiece of modern engineering. The Hyundai Tucson provides a luxurious ride with unmatched reliability, perfect for navigating the Atlas mountains or cruising the Medina.',
-    gridClass: 'masterpiece'
-  },
-  {
-    id: 'duster',
-    name: 'Dacia Duster',
-    type: 'SUV · crossover',
-    image: '/images/cars/duster.png',
-    transmission: 'Automatic',
-    seats: '5 seats',
-    fuel: 'Diesel',
-    price: '350',
-    gridClass: 'large'
-  },
-  {
-    id: 'clio',
-    name: 'Renault Clio',
-    type: 'Compact hatchback',
-    image: '/images/cars/clio.png',
-    transmission: 'Manual',
-    seats: '5 seats',
-    fuel: 'Petrol',
-    price: '220',
-    gridClass: 'large'
-  },
-  {
-    id: 'sandero',
-    name: 'Dacia Sandero',
-    type: 'Economy',
-    image: '/images/cars/sandero.png',
-    transmission: 'Manual',
-    seats: '5 seats',
-    fuel: 'Petrol',
-    price: '190',
-    gridClass: 'standard'
-  },
-  {
-    id: 'picanto',
-    name: 'Kia Picanto',
-    type: 'City car',
-    image: '/images/cars/picanto.png',
-    transmission: 'Manual',
-    seats: '4 seats',
-    fuel: 'Petrol',
-    price: '170',
-    gridClass: 'standard'
-  },
-  {
-    id: 'duster2',
-    name: 'Dacia Duster',
-    type: 'SUV · crossover',
-    image: '/images/cars/duster.png',
-    transmission: 'Manual',
-    seats: '5 seats',
-    fuel: 'Diesel',
-    price: '320',
-    gridClass: 'standard'
-  }
-];
+import { cars } from '@/lib/data';
+import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
 export default function CarsPage() {
   const [scrollY, setScrollY] = useState(0);
@@ -119,7 +52,7 @@ export default function CarsPage() {
       </section>
 
       {/* MARQUEE BANNER */}
-      <div className="brands-marquee" style={{ background: 'var(--bone)', color: 'var(--ink)', paddingBottom: '16px', paddingTop: '16px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+      <div className="brands-marquee" style={{ background: 'var(--bone)', color: 'var(--ink)', paddingBottom: '0px', paddingTop: '0px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
         <div className="marquee">
           <div className="marquee-track">
             <span>MERCEDES-BENZ</span>
@@ -199,33 +132,37 @@ export default function CarsPage() {
           </div>
 
           <div className="cars-editorial-grid">
-            {CARS.map((car, idx) => (
-              <article className={`car-card ${car.gridClass} reveal`} key={idx} style={{ transitionDelay: `${(idx % 3) * 0.1}s` }}>
-                <div className="car-media">
-                  <img src={car.image} alt={car.name} />
-                </div>
-                <div className="car-body">
-                  <h3>{car.name}</h3>
-                  <p className="car-type">{car.type}</p>
-                  
-                  {car.gridClass === 'masterpiece' && (
-                    <p className="car-desc" style={{ marginTop: '16px', opacity: 0.8, lineHeight: 1.5 }}>
-                      {car.description}
-                    </p>
-                  )}
+            {cars.map((car, idx) => {
+              // Assign grid classes dynamically based on index to retain layout style
+              const gridClass = idx === 0 ? 'masterpiece' : (idx === 1 || idx === 2 ? 'large' : 'standard');
+              return (
+                <article className={`car-card ${gridClass} reveal`} key={car.id} style={{ transitionDelay: `${(idx % 3) * 0.1}s` }}>
+                  <div className="car-media">
+                    <img src={car.images[0]} alt={car.name} />
+                  </div>
+                  <div className="car-body">
+                    <h3>{car.name}</h3>
+                    <p className="car-type">{car.type}</p>
+                    
+                    {gridClass === 'masterpiece' && (
+                      <p className="car-desc" style={{ marginTop: '16px', opacity: 0.8, lineHeight: 1.5 }}>
+                        {car.description}
+                      </p>
+                    )}
 
-                  <div className="chip-row" style={{ marginTop: 'auto', paddingTop: '24px' }}>
-                    <span className="chip">{car.transmission}</span>
-                    <span className="chip">{car.seats}</span>
-                    <span className="chip">{car.fuel}</span>
+                    <div className="chip-row" style={{ marginTop: 'auto', paddingTop: '24px' }}>
+                      <span className="chip">{car.transmission}</span>
+                      <span className="chip">{car.seats} seats</span>
+                      <span className="chip">{car.fuel}</span>
+                    </div>
+                    <div className="car-foot">
+                      <span className="car-price">From {car.pricePerDay} DH/day</span>
+                      <a href={`/cars/${car.id}`} className="car-link">View details</a>
+                    </div>
                   </div>
-                  <div className="car-foot">
-                    <span className="car-price">From {car.price} DH/day</span>
-                    <a href={`/cars/${car.id}`} className="car-link">View details</a>
-                  </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
 
           <div className="pagination">
@@ -240,7 +177,7 @@ export default function CarsPage() {
           <h2>Can't decide?</h2>
           <p style={{ marginTop: '16px', opacity: 0.8, fontSize: '18px', maxWidth: '40ch' }}>Send us your dates and we'll match you to a car.</p>
           <div className="hero-ctas" style={{ marginTop: '32px' }}>
-            <a href="/" className="btn btn-brass">Message us on WhatsApp</a>
+            <a href={getGeneralWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-brass">Message us on WhatsApp</a>
           </div>
         </div>
       </section>
