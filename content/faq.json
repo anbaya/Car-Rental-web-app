@@ -1,0 +1,93 @@
+[
+  {
+    "id": "faq-1",
+    "category": "Booking & Requirements",
+    "question": "What documents do I need to rent a car?",
+    "answer": "A valid driver's licence held for at least one year, your passport, and a credit/debit card or cash for the security deposit at pickup.",
+    "order": 0
+  },
+  {
+    "id": "faq-2",
+    "category": "Booking & Requirements",
+    "question": "Is there a minimum age requirement to rent?",
+    "answer": "Yes, drivers must be at least 21 years old for economy and compact cars, and 23 years old for SUVs and premium vehicles. You must also have held your licence for a minimum of one year.",
+    "order": 1
+  },
+  {
+    "id": "faq-3",
+    "category": "Booking & Requirements",
+    "question": "Can I rent for just one day?",
+    "answer": "Yes, single-day rentals are available on most of the fleet, though a few premium vehicles may carry a two-day minimum during peak seasons.",
+    "order": 2
+  },
+  {
+    "id": "faq-4",
+    "category": "Booking & Requirements",
+    "question": "Do I need an International Driving Permit (IDP)?",
+    "answer": "If your driving licence is printed in Latin/Roman alphabet (like English, French, Spanish), you do not need an IDP to drive in Morocco. Otherwise, an IDP is required.",
+    "order": 3
+  },
+  {
+    "id": "faq-5",
+    "category": "Pickup & Drop-off",
+    "question": "Is airport pickup really available at any hour?",
+    "answer": "Yes! If you provide your flight number when requesting your booking, our agent will monitor your flight and be waiting for you at Marrakech Menara Airport arrivals, no matter what time you land or if you are delayed.",
+    "order": 4
+  },
+  {
+    "id": "faq-6",
+    "category": "Pickup & Drop-off",
+    "question": "Can I pick up the car at my hotel instead?",
+    "answer": "Absolutely. We offer free delivery to any hotel or riad within the central Marrakech area for rentals of 3 days or more.",
+    "order": 5
+  },
+  {
+    "id": "faq-7",
+    "category": "Pickup & Drop-off",
+    "question": "What if my flight is delayed?",
+    "answer": "Don't worry. We track all incoming flights based on the flight number you provide. We will wait for you without any late fees.",
+    "order": 6
+  },
+  {
+    "id": "faq-8",
+    "category": "Payments & Insurance",
+    "question": "What happens to my deposit?",
+    "answer": "The deposit is taken as a pre-authorization hold on your credit card (or in cash). It is fully released/returned at drop-off immediately after the vehicle is inspected and found to be in its original condition.",
+    "order": 7
+  },
+  {
+    "id": "faq-9",
+    "category": "Payments & Insurance",
+    "question": "What type of insurance is included?",
+    "answer": "All our rentals include basic comprehensive insurance with a deductible (which matches your deposit amount). This covers third-party liability, theft, and fire.",
+    "order": 8
+  },
+  {
+    "id": "faq-10",
+    "category": "Payments & Insurance",
+    "question": "Can I pay in cash?",
+    "answer": "Yes, you can pay the rental fee and leave the security deposit in cash (Euros, USD, GBP, or Moroccan Dirhams).",
+    "order": 9
+  },
+  {
+    "id": "faq-11",
+    "category": "On the Road",
+    "question": "Are there any mileage limits?",
+    "answer": "No, all our rentals come with unlimited mileage. You are free to explore Morocco as much as you like without worrying about extra per-kilometer charges.",
+    "order": 10
+  },
+  {
+    "id": "faq-12",
+    "category": "On the Road",
+    "question": "Can I drive the car outside of Morocco?",
+    "answer": "No. Our insurance strictly covers driving within the borders of Morocco. Taking the vehicle outside the country is prohibited.",
+    "order": 11
+  },
+  {
+    "id": "faq-13",
+    "category": "On the Road",
+    "question": "What happens if I get a flat tire or break down?",
+    "answer": "We provide 24/7 roadside assistance anywhere in Morocco. If the car cannot be fixed on the spot, we will provide a replacement vehicle.",
+    "order": 12
+  }
+]

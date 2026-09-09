@@ -1,0 +1,107 @@
+[
+  {
+    "id": "hyundai-tucson",
+    "name": "Hyundai Tucson",
+    "type": "Premium SUV",
+    "pricePerDay": 420,
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "fuel": "Diesel",
+    "hasAc": true,
+    "featured": true,
+    "images": ["/images/cars/hyundai-tucson-01.png"],
+    "description": "A masterpiece of modern engineering. The Hyundai Tucson provides a luxurious ride with unmatched reliability, perfect for navigating the Atlas mountains or cruising the Medina.",
+    "included": ["Basic insurance", "Unlimited mileage", "Airport pickup available"],
+    "conditions": [
+      "Minimum rental period: 2 days",
+      "Security deposit: 4,000 DH",
+      "Required: valid driving licence + passport/ID",
+      "Minimum driver age: 23"
+    ]
+  },
+  {
+    "id": "dacia-duster",
+    "name": "Dacia Duster",
+    "type": "SUV · crossover",
+    "pricePerDay": 350,
+    "transmission": "Automatic",
+    "seats": 5,
+    "doors": 5,
+    "fuel": "Diesel",
+    "hasAc": true,
+    "featured": true,
+    "images": ["/images/cars/dacia-duster-01.png"],
+    "description": "A robust and reliable SUV perfect for exploring Marrakech and the surrounding Atlas Mountains. Comfortable for families and small groups.",
+    "included": ["Basic insurance", "Unlimited mileage", "Airport pickup available"],
+    "conditions": [
+      "Minimum rental period: 1 day",
+      "Security deposit: 3,000 DH",
+      "Required: valid driving licence + passport/ID",
+      "Minimum driver age: 21"
+    ]
+  },
+  {
+    "id": "renault-clio",
+    "name": "Renault Clio",
+    "type": "Compact hatchback",
+    "pricePerDay": 220,
+    "transmission": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "fuel": "Petrol",
+    "hasAc": true,
+    "featured": true,
+    "images": ["/images/cars/renault-clio-01.png"],
+    "description": "A compact and fuel-efficient city car ideal for navigating the streets of Marrakech. Easy to park and budget-friendly.",
+    "included": ["Basic insurance", "Unlimited mileage"],
+    "conditions": [
+      "Minimum rental period: 1 day",
+      "Security deposit: 2,000 DH",
+      "Required: valid driving licence + passport/ID",
+      "Minimum driver age: 21"
+    ]
+  },
+  {
+    "id": "dacia-sandero",
+    "name": "Dacia Sandero",
+    "type": "Economy",
+    "pricePerDay": 190,
+    "transmission": "Manual",
+    "seats": 5,
+    "doors": 5,
+    "fuel": "Petrol",
+    "hasAc": true,
+    "featured": false,
+    "images": ["/images/cars/dacia-sandero-01.png"],
+    "description": "The most affordable option in our fleet — reliable, easy to drive, and perfect for short city trips in Marrakech.",
+    "included": ["Basic insurance", "Unlimited mileage"],
+    "conditions": [
+      "Minimum rental period: 1 day",
+      "Security deposit: 1,500 DH",
+      "Required: valid driving licence + passport/ID",
+      "Minimum driver age: 21"
+    ]
+  },
+  {
+    "id": "kia-picanto",
+    "name": "Kia Picanto",
+    "type": "City car",
+    "pricePerDay": 170,
+    "transmission": "Manual",
+    "seats": 4,
+    "doors": 5,
+    "fuel": "Petrol",
+    "hasAc": true,
+    "featured": false,
+    "images": ["/images/cars/kia-picanto-01.png"],
+    "description": "A nimble and compact car perfect for zipping around town. Extremely easy to park in the narrow streets of the Medina.",
+    "included": ["Basic insurance", "Unlimited mileage"],
+    "conditions": [
+      "Minimum rental period: 1 day",
+      "Security deposit: 1,500 DH",
+      "Required: valid driving licence + passport/ID",
+      "Minimum driver age: 21"
+    ]
+  }
+]

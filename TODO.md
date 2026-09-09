@@ -23,7 +23,7 @@ Based on the provided Full Repository Review & Implementation Specification, her
 - [x] Apply SEO best practices (metadata and content hierarchy).
 
 ## P2 - P4: Future Considerations (Post-MVP)
-- [ ] **P2**: Implement CMS (Only after repeated content bottlenecks).
+- [x] **P2**: Implement CMS (Only after repeated content bottlenecks).
 - [ ] **P2**: Implement real availability system (Only after client demand).
 - [ ] **P3**: Build an Admin Dashboard (Only after real booking operations begin).
 - [ ] **P3**: Implement Online Payments (Only when commercially required).

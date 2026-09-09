@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
-export default function Hero() {
+export default function Hero({ whatsappNumber }: { whatsappNumber: string }) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Hero() {
         </p>
         <div className="hero-ctas">
           <a href="/cars" className="btn btn-brass">Browse the fleet</a>
-          <a href={getGeneralWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+          <a href={getGeneralWhatsAppUrl(whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
             Message us on WhatsApp
           </a>
         </div>

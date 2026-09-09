@@ -1,10 +1,10 @@
 'use client';
 import { useRef, useState, MouseEvent } from 'react';
-import { cars } from '@/lib/data';
+import type { Vehicle } from '@/types';
 
 const CATEGORIES = ['All', 'SUV', 'Economy', 'Compact'];
 
-export default function FeaturedVehicles() {
+export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) {
   const trackRef = useRef<HTMLDivElement>(null);
   const [filter, setFilter] = useState('All');
   
@@ -50,7 +50,7 @@ export default function FeaturedVehicles() {
   };
 
   // Filter logic
-  const filteredCars = cars.filter((car) => {
+  const filteredCars = vehicles.filter((car) => {
     if (filter === 'All') return true;
     if (filter === 'SUV') return car.type.includes('SUV');
     if (filter === 'Economy') return car.type.includes('Economy') || car.type.includes('City');

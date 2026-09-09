@@ -32,20 +32,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+import { getSiteConfig } from '@/lib/cms';
+
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const siteConfig = await getSiteConfig();
+  const whatsappNumber = siteConfig.whatsappNumber;
+  const email = siteConfig.email;
+  const phoneNumber = siteConfig.phoneNumber || siteConfig.whatsappNumber;
+  const address = siteConfig.address;
+  const locationUrl = siteConfig.locationUrl;
+
   return (
     <html lang={defaultLocale} className={`${manrope.variable} ${fraunces.variable}`}>
       <body>
-        <Navbar />
+        <Navbar whatsappNumber={whatsappNumber} />
         <main className="main-content">
           {children}
         </main>
-        <Footer />
-        <FloatingWhatsApp />
+        <Footer whatsappNumber={whatsappNumber} phoneNumber={phoneNumber} email={email} address={address} locationUrl={locationUrl} />
+        <FloatingWhatsApp whatsappNumber={whatsappNumber} />
       </body>
     </html>
   );

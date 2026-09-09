@@ -9,21 +9,30 @@ import LocationMap from '@/components/home/LocationMap';
 import FaqSection from '@/components/home/FaqSection';
 import FinalCta from '@/components/home/FinalCta';
 import ScrollReveal from '@/components/home/ScrollReveal';
+import { getVehicles, getReviews, getFaqs, getSiteConfig } from '@/lib/cms';
 
-export default function HomePage() {
+export default async function HomePage() {
+  const [vehicles, reviews, faqs, siteConfig] = await Promise.all([
+    getVehicles(),
+    getReviews(),
+    getFaqs(),
+    getSiteConfig(),
+  ]);
+
   return (
     <main>
-      <Hero />
+      <Hero whatsappNumber={siteConfig.whatsappNumber} />
       <QuickSearch />
       <BrandsMarquee />
-      <FeaturedVehicles />
+      <FeaturedVehicles vehicles={vehicles} />
       <WhyChooseUs />
       <HowItWorks />
-      <Reviews />
-      <LocationMap />
-      <FaqSection />
-      <FinalCta />
+      <Reviews reviews={reviews} />
+      <LocationMap whatsappNumber={siteConfig.whatsappNumber} address={siteConfig.address} locationUrl={siteConfig.locationUrl} />
+      <FaqSection faqs={faqs} />
+      <FinalCta whatsappNumber={siteConfig.whatsappNumber} />
       <ScrollReveal />
     </main>
   );
 }
+

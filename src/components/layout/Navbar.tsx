@@ -1,9 +1,15 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
-export default function Navbar() {
+export default function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  
+  if (pathname?.startsWith('/admin')) {
+    return null;
+  }
   
   return (
     <>
@@ -30,7 +36,7 @@ export default function Navbar() {
               <button>FR</button>
               <button>AR</button>
             </div>
-            <a href={getGeneralWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+            <a href={getGeneralWhatsAppUrl(whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
               </svg>

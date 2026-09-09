@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import { getCarBySlug } from '@/lib/data';
+import { getVehicleBySlug } from '@/lib/cms';
 import ImageGallery from '@/components/cars/ImageGallery';
 import VehicleSpecs from '@/components/cars/VehicleSpecs';
 import styles from './car-details.module.css';
@@ -13,7 +13,7 @@ interface CarDetailsPageProps {
 
 export async function generateMetadata({ params }: CarDetailsPageProps): Promise<Metadata> {
   const { slug } = await params;
-  const vehicle = getCarBySlug(slug);
+  const vehicle = await getVehicleBySlug(slug);
 
   if (!vehicle) {
     return { title: 'Car Not Found | Marrakech Car Rental' };
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: CarDetailsPageProps): Promise
 
 export default async function CarDetailsPage({ params }: CarDetailsPageProps) {
   const { slug } = await params;
-  const vehicle = getCarBySlug(slug);
+  const vehicle = await getVehicleBySlug(slug);
 
   if (!vehicle) {
     notFound();

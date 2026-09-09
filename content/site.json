@@ -1,0 +1,15 @@
+{
+  "name": "Marrakech Car Rental",
+  "email": "bayaanoir37@gmail.com",
+  "whatsappNumber": "212655690519",
+  "phoneNumber": "212655690519",
+  "address": "Route de l'Aéroport, Marrakech",
+  "locationUrl": "https://maps.app.goo.gl/fwfVHk5bdVM5Z2x87",
+  "locations": [
+    "Marrakech Airport",
+    "Marrakech City",
+    "Hotel / Riad",
+    "Other"
+  ],
+  "businessHours": "24/7"
+}

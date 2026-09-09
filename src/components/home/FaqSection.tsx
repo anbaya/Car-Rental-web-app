@@ -1,7 +1,13 @@
-import { homepageFaqs } from '@/lib/faqData';
+import type { FaqEntry } from '@/types';
 import FaqAccordion from '@/components/ui/FaqAccordion';
 
-export default function FaqSection() {
+export default function FaqSection({ faqs }: { faqs: FaqEntry[] }) {
+  // Show up to 4 entries on the homepage — user can see the rest on /faq
+  const previewFaqs = faqs.slice(0, 4).map((f) => ({
+    question: f.question,
+    answer: f.answer,
+  }));
+
   return (
     <section className="on-bone">
       <div className="wrap">
@@ -16,9 +22,10 @@ export default function FaqSection() {
           </p>
         </div>
         <div className="reveal delay-2">
-          <FaqAccordion items={homepageFaqs} openFirst={true} />
+          <FaqAccordion items={previewFaqs} openFirst={true} />
         </div>
       </div>
     </section>
   );
 }
+

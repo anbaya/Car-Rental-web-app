@@ -1,4 +1,5 @@
-export default function LocationMap() {
+export default function LocationMap({ whatsappNumber, address, locationUrl }: { whatsappNumber: string; address?: string; locationUrl?: string }) {
+  const displayPhone = whatsappNumber.startsWith('+') ? whatsappNumber : `+${whatsappNumber}`;
   return (
     <section className="location-section" id="location">
       <div className="wrap location-grid">
@@ -12,13 +13,20 @@ export default function LocationMap() {
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M4 5h16v11H9l-5 4V5z" />
               </svg>
-              <p>+212 6XX XX XX XX — WhatsApp answered daily, 7am–11pm</p>
+              <p>{displayPhone} — WhatsApp answered daily, 7am–11pm</p>
             </div>
             <div className="loc-item">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M12 3c4 3 7 6 7 10a7 7 0 0 1-14 0c0-4 3-7 7-10z" />
               </svg>
-              <p>Route de l'Aéroport, Marrakech — 10 minutes from Menara</p>
+              <p>
+                {locationUrl ? (
+                  <a href={locationUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>{address || "Route de l'Aéroport, Marrakech"}</a>
+                ) : (
+                  address || "Route de l'Aéroport, Marrakech"
+                )}
+                {" — 10 minutes from Menara"}
+              </p>
             </div>
             <div className="loc-item">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

@@ -1,9 +1,7 @@
 import type { RentalRequest } from '@/types';
 
 // ── Configuration ──────────────────────────────────────────────
-// Replace this with the real business WhatsApp number before going live.
-// Format: international with country code, no spaces/dashes (e.g. "212600000000")
-export const WHATSAPP_NUMBER = '212655690519';
+// Helper functions to generate WhatsApp URLs
 
 // ── Message Builder ────────────────────────────────────────────
 /**
@@ -53,20 +51,21 @@ export function buildRentalMessage(
  * Returns a wa.me URL with a pre-filled rental request message.
  */
 export function getRentalWhatsAppUrl(
+  whatsappNumber: string,
   request: RentalRequest,
   vehicleName: string,
   pricePerDay?: number
 ): string {
   const message = buildRentalMessage(request, vehicleName, pricePerDay);
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 /**
  * Returns a wa.me URL with a generic greeting for the "Message us" buttons.
  */
-export function getGeneralWhatsAppUrl(): string {
+export function getGeneralWhatsAppUrl(whatsappNumber: string): string {
   const message = 'Hello, I\'m interested in renting a car in Marrakech. Could you help me?';
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
 
 // ── Helpers ────────────────────────────────────────────────────
