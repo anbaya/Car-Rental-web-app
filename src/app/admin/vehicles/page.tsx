@@ -35,7 +35,7 @@ function defaultForm(): Partial<Vehicle> {
     id: '', name: '', type: '', pricePerDay: 200,
     transmission: 'Manual', seats: 5, doors: 5,
     fuel: 'Petrol', hasAc: true, featured: false,
-    images: ['/images/cars/'],
+    images: [],
     description: '', included: [], conditions: [],
   };
 }
@@ -54,6 +54,45 @@ function VehicleModal({
   const [form, setForm] = useState<Partial<Vehicle>>(vehicle ?? defaultForm());
   const [saving, setSaving] = useState(false);
   const [err, setErr] = useState('');
+  const [uploadingImage, setUploadingImage] = useState(false);
+
+  async function handleImageUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    setUploadingImage(true);
+    setErr('');
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('/api/admin/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || 'Upload failed');
+      }
+
+      const currentImages = typeof form.images === 'string' 
+        ? form.images 
+        : (form.images || []).join('\n');
+      
+      const newImages = currentImages.trim() 
+        ? currentImages.trim() + '\n' + data.url 
+        : data.url;
+
+      set('images', newImages);
+    } catch (error: any) {
+      setErr(error.message || 'Upload failed');
+    } finally {
+      setUploadingImage(false);
+      e.target.value = '';
+    }
+  }
 
   function set(field: keyof Vehicle, val: unknown) {
     setForm((f) => ({ ...f, [field]: val }));
@@ -165,8 +204,14 @@ function VehicleModal({
                 </label>
               </div>
               <div className="adm-field adm-full">
-                <label className="adm-label">Image Paths (one per line)</label>
-                <textarea className="adm-textarea" value={imagesStr} onChange={(e) => set('images', e.target.value)} placeholder="/images/cars/vehicle-01.png" rows={2} />
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 6 }}>
+                  <label className="adm-label" style={{ margin: 0 }}>Image Paths (one per line)</label>
+                  <label className="adm-btn adm-btn-ghost adm-btn-sm" style={{ cursor: 'pointer', padding: '4px 10px', fontSize: 12, border: '1px dashed var(--adm-border)' }}>
+                    {uploadingImage ? '⏳ Uploading...' : '📁 Upload Image'}
+                    <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleImageUpload} disabled={uploadingImage} />
+                  </label>
+                </div>
+                <textarea className="adm-textarea" value={imagesStr} onChange={(e) => set('images', e.target.value)} placeholder="/images/cars/vehicle-01.png" rows={3} />
               </div>
               <div className="adm-field adm-full">
                 <label className="adm-label">Description *</label>
