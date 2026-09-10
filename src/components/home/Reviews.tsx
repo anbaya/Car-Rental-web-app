@@ -1,6 +1,8 @@
 import type { Review } from '@/types';
+import { useTranslations } from 'next-intl';
 
 export default function Reviews({ reviews }: { reviews: Review[] }) {
+  const t = useTranslations('HomePage.Reviews');
   return (
     <section className="bg-soft" style={{ overflow: "hidden" }}>
       <div className="review-shell">
@@ -60,8 +62,8 @@ export default function Reviews({ reviews }: { reviews: Review[] }) {
 
       <div className="wrap" style={{ paddingTop: 0 }}>
         <div className="review-controls reveal delay-2" style={{ justifyContent: "space-between" }}>
-          <p className="review-note" style={{ margin: 0, textAlign: "left" }}>Real testimonials from verified clients.</p>
-          <a href="/" className="btn btn-brass">See more on Google</a>
+          <p className="review-note" style={{ margin: 0, textAlign: "left" }}>{t('note')}</p>
+          <a href="/" className="btn btn-brass">{t('seeMore')}</a>
         </div>
       </div>
     </section>

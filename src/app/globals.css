@@ -232,16 +232,16 @@ summary:focus-visible {
   font-size: 13px;
 }
 
-.lang-switch button {
+.lang-switch a {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
   opacity: .7;
   border-radius: 6px;
   padding: 4px 8px;
+  text-decoration: none;
 }
-
-.lang-switch button[aria-current="true"] {
+.lang-switch a[aria-current="true"] {
   opacity: 1;
   border-color: #fff;
   color: #fff;
@@ -328,7 +328,7 @@ summary:focus-visible {
 .hero-editorial {
   position: relative;
   z-index: 10;
-  padding-left: 8%;
+  padding-inline-start: 8%;
 }
 
 .hero-title {
@@ -347,7 +347,7 @@ summary:focus-visible {
 .hero-title .line-2 {
   display: block;
   color: var(--brass);
-  padding-left: 10%;
+  padding-inline-start: 10%;
 }
 
 .hero-sub {
@@ -356,13 +356,13 @@ summary:focus-visible {
   line-height: 1.5;
   color: rgba(0, 0, 0, 0.7);
   margin-bottom: 40px;
-  margin-left: 10%;
+  margin-inline-start: 10%;
 }
 
 .hero-ctas {
   display: flex;
   gap: 16px;
-  margin-left: 10%;
+  margin-inline-start: 10%;
   flex-wrap: wrap;
 }
 
@@ -378,9 +378,20 @@ summary:focus-visible {
   animation: slideRight 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
+[dir="rtl"] .hero-visual {
+  right: auto;
+  left: 0;
+  animation: slideLeftRTL 2s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
 @keyframes slideRight {
   from { opacity: 0; transform: translate(-100vw, 56%); }
   to { opacity: 1; transform: translate(30%, 56%); }
+}
+
+@keyframes slideLeftRTL {
+  from { opacity: 0; transform: translate(100vw, 56%); }
+  to { opacity: 1; transform: translate(-30%, 56%); }
 }
 
 
@@ -441,18 +452,19 @@ summary:focus-visible {
   }
 
   .hero-editorial {
-    padding-left: 0;
+    padding-inline-start: 0;
   }
 
-  .hero-visual {
+  .hero-visual, [dir="rtl"] .hero-visual {
     position: relative;
     top: auto;
     right: auto;
-    transform: none;
+    left: auto;
+    transform: none !important;
     width: 100%;
-    height: 300px;
-    margin-top: 40px;
-    animation: none;
+    margin: 40px auto 0;
+    animation: fadeIn .5s ease forwards;
+    opacity: 0;
   }
 
   .hero-vehicle {
@@ -913,6 +925,10 @@ section {
   height: 100px;
   pointer-events: none;
   overflow: visible;
+}
+
+[dir="rtl"] .steps-svg {
+  scale: -1 1;
 }
 
 .steps-svg path {

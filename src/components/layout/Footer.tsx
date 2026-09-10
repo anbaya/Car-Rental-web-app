@@ -1,13 +1,15 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function Footer({ whatsappNumber, phoneNumber, email, address, locationUrl }: { whatsappNumber: string; phoneNumber?: string; email: string; address?: string; locationUrl?: string }) {
   const pathname = usePathname();
+  const t = useTranslations('Footer');
   if (pathname?.startsWith('/admin')) {
     return null;
   }
 
-  // Format e.g. "212655690519" to "+212 655 690 519" or similar
+  // Format e.g. "212635390319" to "+212 633 390 319" or similar
   const displayWhatsapp = whatsappNumber.startsWith('+') ? whatsappNumber : `+${whatsappNumber}`;
   const displayPhoneNum = phoneNumber ? (phoneNumber.startsWith('+') ? phoneNumber : `+${phoneNumber}`) : displayWhatsapp;
 
@@ -25,11 +27,10 @@ export default function Footer({ whatsappNumber, phoneNumber, email, address, lo
                 </svg>
                 Atlas Drive
               </a>
-              <p>Car rental in Marrakech, built around a request-and-confirm booking model — no surprise charges, no fine
-                print you find out about later.</p>
+              <p>{t('brandDescription')}</p>
             </div>
             <div className="footer-col">
-              <h4>Explore</h4>
+              <h4>{t('explore')}</h4>
               <ul>
                 <li><a href="/cars">Cars</a></li>
                 <li><a href="/about">About</a></li>
@@ -38,7 +39,7 @@ export default function Footer({ whatsappNumber, phoneNumber, email, address, lo
               </ul>
             </div>
             <div className="footer-col">
-              <h4>Contact</h4>
+              <h4>{t('contactTitle')}</h4>
               <ul>
                 <li>WhatsApp: {displayWhatsapp}</li>
                 <li>Phone: {displayPhoneNum}</li>
@@ -48,23 +49,23 @@ export default function Footer({ whatsappNumber, phoneNumber, email, address, lo
                 ) : address ? (
                   <li>{address}</li>
                 ) : (
-                  <li>Route de l'Aéroport, Marrakech</li>
+                  <li>{t('defaultAddress')}</li>
                 )}
               </ul>
             </div>
             <div className="footer-col">
-              <h4>Legal</h4>
+              <h4>{t('legalTitle')}</h4>
               <ul>
-                <li><a href="/">Terms &amp; Conditions</a></li>
-                <li><a href="/">Privacy Policy</a></li>
+                <li><a href="/">{t('terms')}</a></li>
+                <li><a href="/">{t('privacy')}</a></li>
                 <li>Instagram</li>
                 <li>Facebook</li>
               </ul>
             </div>
           </div>
           <div className="footer-bottom">
-            <span>© 2026 Atlas Drive. All rights reserved.</span>
-            <span>Marrakech, Morocco</span>
+            <span>{t('copyright')}</span>
+            <span>{t('location')}</span>
           </div>
         </div>
       </footer>

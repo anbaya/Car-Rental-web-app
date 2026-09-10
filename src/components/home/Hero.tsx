@@ -1,9 +1,11 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
+import { useTranslations } from 'next-intl';
 
 export default function Hero({ whatsappNumber }: { whatsappNumber: string }) {
   const [scrollY, setScrollY] = useState(0);
+  const t = useTranslations('Hero');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,18 +19,16 @@ export default function Hero({ whatsappNumber }: { whatsappNumber: string }) {
     <section className="hero">
       <div className="hero-editorial">
         <h1 className="hero-title">
-          <span className="line-1">Marrakech,</span>
-          <span className="line-2">Uncompromised.</span>
+          <span className="line-1">{t('line1')}</span>
+          <span className="line-2">{t('line2')}</span>
         </h1>
         <p className="hero-sub">
-          Premium fleet. Transparent pricing. Delivered to your Riad.
-          Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car
-          up at the airport, your riad, or right in the medina.
+          {t('subtitle')}
         </p>
         <div className="hero-ctas">
-          <a href="/cars" className="btn btn-brass">Browse the fleet</a>
+          <a href="/cars" className="btn btn-brass">{t('browseFleet')}</a>
           <a href={getGeneralWhatsAppUrl(whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
-            Message us on WhatsApp
+            {t('messageWhatsapp')}
           </a>
         </div>
       </div>

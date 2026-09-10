@@ -1,12 +1,13 @@
 'use client';
 import { useRef, useState, MouseEvent } from 'react';
 import type { Vehicle } from '@/types';
-
-const CATEGORIES = ['All', 'SUV', 'Economy', 'Compact'];
+import { useTranslations } from 'next-intl';
 
 export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) {
+  const t = useTranslations('HomePage.FeaturedVehicles');
+  const CATEGORIES = [t('catAll'), t('catSUV'), t('catEconomy'), t('catCompact')];
   const trackRef = useRef<HTMLDivElement>(null);
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState(t('catAll'));
   
   // Drag-to-scroll state
   const [isDragging, setIsDragging] = useState(false);
@@ -51,10 +52,10 @@ export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) 
 
   // Filter logic
   const filteredCars = vehicles.filter((car) => {
-    if (filter === 'All') return true;
-    if (filter === 'SUV') return car.type.includes('SUV');
-    if (filter === 'Economy') return car.type.includes('Economy') || car.type.includes('City');
-    if (filter === 'Compact') return car.type.includes('Compact');
+    if (filter === t('catAll')) return true;
+    if (filter === t('catSUV')) return car.type.includes('SUV');
+    if (filter === t('catEconomy')) return car.type.includes('Economy') || car.type.includes('City');
+    if (filter === t('catCompact')) return car.type.includes('Compact');
     return true;
   });
 
@@ -63,8 +64,8 @@ export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) 
       <div className="wrap">
         <div className="fleet-head">
           <div className="section-head" style={{ marginBottom: 0 }}>
-            <h2>Cars people actually ask for</h2>
-            <p>A working cross-section of the fleet — from city runabouts to airport-ready SUVs.</p>
+            <h2>{t('title')}</h2>
+            <p>{t('sub')}</p>
           </div>
           
           <div className="fleet-controls">
@@ -114,12 +115,12 @@ export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) 
                 <p className="car-type">{car.type}</p>
                 <div className="chip-row">
                   <span className="chip">{car.transmission}</span>
-                  <span className="chip">{car.seats} seats</span>
+                  <span className="chip">{t('seats', { count: car.seats })}</span>
                   <span className="chip">{car.fuel}</span>
                 </div>
                 <div className="car-foot">
-                  <span className="car-price">From {car.pricePerDay} DH/day</span>
-                  <a href={`/cars/${car.id}`} className="car-link">View details</a>
+                  <span className="car-price">{t('fromPrice', { price: car.pricePerDay })}</span>
+                  <a href={`/cars/${car.id}`} className="car-link">{t('viewDetails')}</a>
                 </div>
               </div>
             </article>
@@ -127,7 +128,7 @@ export default function FeaturedVehicles({ vehicles }: { vehicles: Vehicle[] }) 
         </div>
 
         <div className="section-foot">
-          <a href="/cars" className="btn btn-outline">View all cars</a>
+          <a href="/cars" className="btn btn-outline">{t('viewAll')}</a>
         </div>
       </div>
     </section>

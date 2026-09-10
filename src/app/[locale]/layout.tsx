@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import { Fraunces, Manrope } from 'next/font/google';
-import './globals.css';
-import { defaultLocale } from '@/i18n/config';
+import '../globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp';
@@ -33,12 +32,32 @@ export const metadata: Metadata = {
 };
 
 import { getSiteConfig } from '@/lib/cms';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, setRequestLocale } from 'next-intl/server';
+import { routing } from '@/i18n/routing';
+import { notFound } from 'next/navigation';
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({locale}));
+}
 
 export default async function RootLayout({
   children,
+  params
 }: {
   children: React.ReactNode;
+  params: Promise<{ locale: string }>
 }) {
+  const { locale } = await params;
+
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  setRequestLocale(locale);
+
+  const messages = await getMessages();
+
   const siteConfig = await getSiteConfig();
   const whatsappNumber = siteConfig.whatsappNumber;
   const email = siteConfig.email;
@@ -46,15 +65,19 @@ export default async function RootLayout({
   const address = siteConfig.address;
   const locationUrl = siteConfig.locationUrl;
 
+  const dir = locale === 'ar' ? 'rtl' : 'ltr';
+
   return (
-    <html lang={defaultLocale} className={`${manrope.variable} ${fraunces.variable}`}>
+    <html lang={locale} dir={dir} className={`${manrope.variable} ${fraunces.variable}`}>
       <body>
-        <Navbar whatsappNumber={whatsappNumber} />
-        <main className="main-content">
-          {children}
-        </main>
-        <Footer whatsappNumber={whatsappNumber} phoneNumber={phoneNumber} email={email} address={address} locationUrl={locationUrl} />
-        <FloatingWhatsApp whatsappNumber={whatsappNumber} />
+        <NextIntlClientProvider messages={messages}>
+          <Navbar whatsappNumber={whatsappNumber} locale={locale} />
+          <main className="main-content">
+            {children}
+          </main>
+          <Footer whatsappNumber={whatsappNumber} phoneNumber={phoneNumber} email={email} address={address} locationUrl={locationUrl} />
+          <FloatingWhatsApp whatsappNumber={whatsappNumber} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );

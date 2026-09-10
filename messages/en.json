@@ -1,0 +1,133 @@
+{
+  "Navbar": {
+    "home": "Home",
+    "cars": "Cars",
+    "about": "About",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp"
+  },
+  "Hero": {
+    "line1": "Marrakech,",
+    "line2": "Uncompromised.",
+    "subtitle": "Premium fleet. Transparent pricing. Delivered to your Riad. Browse a fleet that's actually maintained, get a real price over WhatsApp, and pick your car up at the airport, your riad, or right in the medina.",
+    "browseFleet": "Browse the fleet",
+    "messageWhatsapp": "Message us on WhatsApp"
+  },
+  "Footer": {
+    "brandDescription": "Car rental in Marrakech, built around a request-and-confirm booking model — no surprise charges, no fine print you find out about later.",
+    "explore": "Explore",
+    "contactTitle": "Contact",
+    "legalTitle": "Legal",
+    "terms": "Terms & Conditions",
+    "privacy": "Privacy Policy",
+    "copyright": "© 2026 Atlas Drive. All rights reserved.",
+    "location": "Marrakech, Morocco",
+    "defaultAddress": "Route de l'Aéroport, Marrakech"
+  },
+  "Cars": {
+    "headerTitle": "The Fleet",
+    "headerSub": "Explore our curated collection of well-maintained vehicles.",
+    "filterType": "Vehicle type",
+    "filterAllTypes": "All types",
+    "filterEconomy": "Economy",
+    "filterSUV": "SUV",
+    "filterTrans": "Transmission",
+    "filterAllTrans": "All",
+    "filterAuto": "Automatic",
+    "filterManual": "Manual",
+    "filterSeats": "Seats",
+    "filterAnySeats": "Any",
+    "filter4Seats": "4 seats",
+    "filter5Seats": "5+ seats",
+    "filterPrice": "Price range",
+    "filterAnyPrice": "Any price",
+    "filterLowPrice": "Under 250 DH",
+    "filterHighPrice": "250 DH +",
+    "clearFilters": "Clear filters",
+    "available": "{count} car available",
+    "availablePlural": "{count} cars available",
+    "sort": "Sort:",
+    "sortRec": "Recommended",
+    "sortLow": "Price: low to high",
+    "sortHigh": "Price: high to low",
+    "seats": "{count} seats",
+    "fromPrice": "From {price} DH/day",
+    "viewDetails": "View details",
+    "loadMore": "Load more cars →",
+    "ctaTitle": "Can't decide?",
+    "ctaSub": "Send us your dates and we'll match you to a car.",
+    "ctaBtn": "Message us on WhatsApp"
+  },
+  "HomePage": {
+    "QuickSearch": {
+      "pickupLoc": "Pickup location",
+      "locAirport": "Marrakech Menara Airport",
+      "locCity": "Marrakech city centre",
+      "locHotel": "Hotel / Riad delivery",
+      "pickupDate": "Pickup date",
+      "returnDate": "Return date",
+      "checkAvail": "Check availability"
+    },
+    "BrandsMarquee": {
+      "fleetIncludes": "The fleet includes"
+    },
+    "FeaturedVehicles": {
+      "title": "Cars people actually ask for",
+      "sub": "A working cross-section of the fleet — from city runabouts to airport-ready SUVs.",
+      "catAll": "All",
+      "catSUV": "SUV",
+      "catEconomy": "Economy",
+      "catCompact": "Compact",
+      "seats": "{count} seats",
+      "fromPrice": "From {price} DH/day",
+      "viewDetails": "View details",
+      "viewAll": "View all cars"
+    },
+    "WhyChooseUs": {
+      "title": "Why people rebook with us",
+      "sub": "Four things we can actually stand behind — not a wall of generic checkmarks.",
+      "trust1Title": "Real prices, no surprises",
+      "trust1Desc": "The price you're quoted on WhatsApp is the price you pay at pickup. Deposit and terms are explained before you confirm, not after.",
+      "trust2Title": "Always on WhatsApp",
+      "trust2Desc": "A person answers, in French, English, or Arabic — usually within minutes, not a chatbot reading from a script.",
+      "trust3Title": "Airport, city, or riad pickup",
+      "trust3Desc": "Land at Menara, walk out of your medina riad, or meet us in Gueliz — we come to wherever your trip actually starts.",
+      "trust4Title": "A fleet that's actually maintained",
+      "trust4Desc": "Every car is serviced and inspected between rentals — no rolling into your holiday with a check-engine light already on."
+    },
+    "HowItWorks": {
+      "title": "How a request becomes a rental",
+      "sub": "Three steps, and a human confirms the details before anything is final.",
+      "step1Title": "Choose your car",
+      "step1Desc": "Filter by size, transmission, or price, and open the one that fits your trip.",
+      "step2Title": "Send a request",
+      "step2Desc": "Fill out a quick form with your dates and pickup spot. No payment details required.",
+      "step3Title": "Confirm on WhatsApp",
+      "step3Desc": "We'll message you back to confirm availability and lock in the total price."
+    },
+    "Reviews": {
+      "note": "Real testimonials from verified clients.",
+      "seeMore": "See more on Google"
+    },
+    "LocationMap": {
+      "title": "Based in Marrakech, ready at the airport",
+      "sub": "City pickups, Menara Airport meet-and-greet, and hotel/riad delivery across the medina and Gueliz.",
+      "phoneNote": "— WhatsApp answered daily, 7am–11pm",
+      "defaultAddress": "Route de l'Aéroport, Marrakech",
+      "distanceNote": "— 10 minutes from Menara",
+      "freePickup": "Airport pickup is free after a two-day minimum rental"
+    },
+    "FaqSection": {
+      "title": "Common questions",
+      "sub1": "The short version — the full list lives on the ",
+      "link": "FAQ page",
+      "sub2": "."
+    },
+    "FinalCta": {
+      "title": "Ready when you are.",
+      "btn1": "Browse the fleet",
+      "btn2": "Message us on WhatsApp"
+    }
+  }
+}

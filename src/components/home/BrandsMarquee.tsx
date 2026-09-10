@@ -1,8 +1,11 @@
+import { useTranslations } from 'next-intl';
+
 export default function BrandsMarquee() {
+  const t = useTranslations('HomePage.BrandsMarquee');
   return (
     <div className="marquee-section">
       <div className="wrap">
-        <p className="marquee-label">The fleet includes</p>
+        <p className="marquee-label">{t('fleetIncludes')}</p>
       </div>
       <div className="marquee">
         <div className="marquee-track">

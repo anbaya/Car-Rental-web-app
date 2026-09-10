@@ -1,12 +1,14 @@
 'use client';
-import { useState, useEffect } from 'react';
-import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { usePathname, Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { getGeneralWhatsAppUrl } from '@/lib/whatsapp';
 
-export default function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
+export default function Navbar({ whatsappNumber, locale = 'en' }: { whatsappNumber: string, locale?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
-  
+  const t = useTranslations('Navbar');
+
   if (pathname?.startsWith('/admin')) {
     return null;
   }
@@ -24,23 +26,23 @@ export default function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
             Atlas Drive
           </a>
           <nav className="nav-links">
-            <a href="/">Home</a>
-            <a href="/cars">Cars</a>
-            <a href="/about">About</a>
-            <a href="/faq">FAQ</a>
-            <a href="/contact">Contact</a>
+            <Link href="/">{t('home')}</Link>
+            <Link href="/cars">{t('cars')}</Link>
+            <Link href="/about">{t('about')}</Link>
+            <Link href="/faq">{t('faq')}</Link>
+            <Link href="/contact">{t('contact')}</Link>
           </nav>
           <div className="nav-right">
             <div className="lang-switch">
-              <button aria-current="true">EN</button>
-              <button>FR</button>
-              <button>AR</button>
+              <Link href={pathname} locale="en" aria-current={locale === 'en' ? 'true' : undefined}>EN</Link>
+              <Link href={pathname} locale="fr" aria-current={locale === 'fr' ? 'true' : undefined}>FR</Link>
+              <Link href={pathname} locale="ar" aria-current={locale === 'ar' ? 'true' : undefined}>AR</Link>
             </div>
             <a href={getGeneralWhatsAppUrl(whatsappNumber)} target="_blank" rel="noopener noreferrer" className="btn btn-outline">
               <svg className="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6">
                 <path d="M4 20l1.4-4.2A8 8 0 1 1 9 18.5L4 20z" />
               </svg>
-              WhatsApp
+              {t('whatsapp')}
             </a>
             <button className="nav-burger" id="burgerBtn" onClick={() => setIsOpen(!isOpen)} aria-expanded={isOpen} aria-controls="mobilePanel"
               aria-label="Open menu">
@@ -51,11 +53,11 @@ export default function Navbar({ whatsappNumber }: { whatsappNumber: string }) {
           </div>
         </div>
         <div id="mobilePanel" className={`mobile-panel ${isOpen ? 'open' : ''}`}>
-          <a href="/">Home</a>
-          <a href="/cars">Cars</a>
-          <a href="/about">About</a>
-          <a href="/faq">FAQ</a>
-          <a href="/contact">Contact</a>
+          <Link href="/" onClick={() => setIsOpen(false)}>{t('home')}</Link>
+          <Link href="/cars" onClick={() => setIsOpen(false)}>{t('cars')}</Link>
+          <Link href="/about" onClick={() => setIsOpen(false)}>{t('about')}</Link>
+          <Link href="/faq" onClick={() => setIsOpen(false)}>{t('faq')}</Link>
+          <Link href="/contact" onClick={() => setIsOpen(false)}>{t('contact')}</Link>
         </div>
       </header>
     </>

@@ -1,0 +1,133 @@
+{
+  "Navbar": {
+    "home": "Accueil",
+    "cars": "Voitures",
+    "about": "À propos",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "whatsapp": "WhatsApp"
+  },
+  "Hero": {
+    "line1": "Marrakech,",
+    "line2": "Sans compromis.",
+    "subtitle": "Flotte premium. Tarification transparente. Livré à votre Riad. Parcourez une flotte réellement entretenue, obtenez un vrai prix sur WhatsApp et récupérez votre voiture à l'aéroport, à votre riad ou en pleine médina.",
+    "browseFleet": "Voir les voitures",
+    "messageWhatsapp": "Contactez-nous sur WhatsApp"
+  },
+  "Footer": {
+    "brandDescription": "Location de voitures à Marrakech, basée sur un modèle de réservation sur demande — pas de frais cachés, pas de mauvaises surprises de dernière minute.",
+    "explore": "Explorer",
+    "contactTitle": "Contact",
+    "legalTitle": "Mentions légales",
+    "terms": "Conditions Générales",
+    "privacy": "Politique de confidentialité",
+    "copyright": "© 2026 Atlas Drive. Tous droits réservés.",
+    "location": "Marrakech, Maroc",
+    "defaultAddress": "Route de l'Aéroport, Marrakech"
+  },
+  "Cars": {
+    "headerTitle": "La Flotte",
+    "headerSub": "Découvrez notre collection soignée de véhicules bien entretenus.",
+    "filterType": "Type de véhicule",
+    "filterAllTypes": "Tous les types",
+    "filterEconomy": "Économique",
+    "filterSUV": "SUV",
+    "filterTrans": "Transmission",
+    "filterAllTrans": "Toutes",
+    "filterAuto": "Automatique",
+    "filterManual": "Manuelle",
+    "filterSeats": "Sièges",
+    "filterAnySeats": "Tous",
+    "filter4Seats": "4 sièges",
+    "filter5Seats": "5+ sièges",
+    "filterPrice": "Fourchette de prix",
+    "filterAnyPrice": "Tous les prix",
+    "filterLowPrice": "Moins de 250 DH",
+    "filterHighPrice": "250 DH +",
+    "clearFilters": "Effacer les filtres",
+    "available": "{count} voiture disponible",
+    "availablePlural": "{count} voitures disponibles",
+    "sort": "Trier:",
+    "sortRec": "Recommandé",
+    "sortLow": "Prix : croissant",
+    "sortHigh": "Prix : décroissant",
+    "seats": "{count} sièges",
+    "fromPrice": "Dès {price} DH/jour",
+    "viewDetails": "Voir les détails",
+    "loadMore": "Charger plus de voitures →",
+    "ctaTitle": "Vous n'arrivez pas à vous décider ?",
+    "ctaSub": "Envoyez-nous vos dates et nous trouverons la voiture qu'il vous faut.",
+    "ctaBtn": "Contactez-nous sur WhatsApp"
+  },
+  "HomePage": {
+    "QuickSearch": {
+      "pickupLoc": "Lieu de prise en charge",
+      "locAirport": "Aéroport Marrakech Menara",
+      "locCity": "Centre-ville de Marrakech",
+      "locHotel": "Livraison Hôtel / Riad",
+      "pickupDate": "Date de prise en charge",
+      "returnDate": "Date de retour",
+      "checkAvail": "Vérifier la disponibilité"
+    },
+    "BrandsMarquee": {
+      "fleetIncludes": "Notre flotte inclut"
+    },
+    "FeaturedVehicles": {
+      "title": "Les voitures les plus demandées",
+      "sub": "Un aperçu de notre flotte — de la citadine pratique au SUV idéal pour l'aéroport.",
+      "catAll": "Toutes",
+      "catSUV": "SUV",
+      "catEconomy": "Économique",
+      "catCompact": "Compacte",
+      "seats": "{count} sièges",
+      "fromPrice": "Dès {price} DH/jour",
+      "viewDetails": "Voir les détails",
+      "viewAll": "Voir toutes les voitures"
+    },
+    "WhyChooseUs": {
+      "title": "Pourquoi nos clients reviennent",
+      "sub": "Quatre engagements concrets — pas juste de belles paroles.",
+      "trust1Title": "Vrais prix, aucune surprise",
+      "trust1Desc": "Le prix annoncé sur WhatsApp est celui que vous payez. La caution et les conditions sont expliquées avant confirmation, pas à la dernière minute.",
+      "trust2Title": "Toujours sur WhatsApp",
+      "trust2Desc": "Une vraie personne vous répond, en français, anglais ou arabe — souvent en quelques minutes, sans chatbot ni script préétabli.",
+      "trust3Title": "Livraison à l'aéroport, en ville ou au riad",
+      "trust3Desc": "Atterrissez à Menara, sortez de votre riad en médina, ou rejoignez-nous à Gueliz — nous venons là où votre voyage commence.",
+      "trust4Title": "Une flotte réellement entretenue",
+      "trust4Desc": "Chaque voiture est révisée et inspectée entre les locations — pas de voyant moteur allumé le premier jour de vos vacances."
+    },
+    "HowItWorks": {
+      "title": "Comment réserver votre voiture",
+      "sub": "Trois étapes simples, et un humain confirme les détails avec vous.",
+      "step1Title": "Choisissez votre voiture",
+      "step1Desc": "Filtrez par taille, transmission ou prix, et trouvez celle qui vous convient.",
+      "step2Title": "Envoyez une demande",
+      "step2Desc": "Remplissez un court formulaire avec vos dates et le lieu de livraison. Aucun paiement requis.",
+      "step3Title": "Confirmez sur WhatsApp",
+      "step3Desc": "Nous vous répondons pour confirmer la disponibilité et valider le prix total."
+    },
+    "Reviews": {
+      "note": "De vrais témoignages de clients vérifiés.",
+      "seeMore": "Voir plus sur Google"
+    },
+    "LocationMap": {
+      "title": "Basé à Marrakech, prêt à l'aéroport",
+      "sub": "Livraison en ville, accueil à l'Aéroport Menara, et livraison à votre hôtel/riad dans la médina ou à Gueliz.",
+      "phoneNote": "— WhatsApp disponible tous les jours, 7h–23h",
+      "defaultAddress": "Route de l'Aéroport, Marrakech",
+      "distanceNote": "— à 10 minutes de Menara",
+      "freePickup": "La livraison à l'aéroport est gratuite pour toute location de 2 jours ou plus"
+    },
+    "FaqSection": {
+      "title": "Questions fréquentes",
+      "sub1": "Un aperçu — la liste complète est sur la ",
+      "link": "page FAQ",
+      "sub2": "."
+    },
+    "FinalCta": {
+      "title": "Prêt quand vous l'êtes.",
+      "btn1": "Voir les voitures",
+      "btn2": "Contactez-nous sur WhatsApp"
+    }
+  }
+}

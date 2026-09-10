@@ -1,25 +1,28 @@
+import { useTranslations } from 'next-intl';
+
 export default function QuickSearch() {
+  const t = useTranslations('HomePage.QuickSearch');
   return (
     <div className="search-card">
       <div className="wrap">
         <form className="search-inner">
           <div className="field">
-            <label htmlFor="pickup-loc">Pickup location</label>
+            <label htmlFor="pickup-loc">{t('pickupLoc')}</label>
             <select id="pickup-loc">
-              <option>Marrakech Menara Airport</option>
-              <option>Marrakech city centre</option>
-              <option>Hotel / Riad delivery</option>
+              <option>{t('locAirport')}</option>
+              <option>{t('locCity')}</option>
+              <option>{t('locHotel')}</option>
             </select>
           </div>
           <div className="field">
-            <label htmlFor="pickup-date">Pickup date</label>
+            <label htmlFor="pickup-date">{t('pickupDate')}</label>
             <input id="pickup-date" type="date" />
           </div>
           <div className="field">
-            <label htmlFor="return-date">Return date</label>
+            <label htmlFor="return-date">{t('returnDate')}</label>
             <input id="return-date" type="date" />
           </div>
-          <button type="submit" className="btn btn-brass">Check availability</button>
+          <button type="submit" className="btn btn-brass">{t('checkAvail')}</button>
         </form>
       </div>
     </div>

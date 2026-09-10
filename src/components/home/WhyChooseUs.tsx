@@ -1,10 +1,13 @@
+import { useTranslations } from 'next-intl';
+
 export default function WhyChooseUs() {
+  const t = useTranslations('HomePage.WhyChooseUs');
   return (
     <section className="on-bone" id="about">
       <div className="wrap">
         <div className="section-head reveal delay-1">
-          <h2>Why people rebook with us</h2>
-          <p>Four things we can actually stand behind — not a wall of generic checkmarks.</p>
+          <h2>{t('title')}</h2>
+          <p>{t('sub')}</p>
         </div>
 
         <div className="trust-row reveal delay-2">
@@ -12,9 +15,8 @@ export default function WhyChooseUs() {
             <img src="/images/trust/trust1.png" alt="Real prices" />
           </div>
           <div className="trust-text">
-            <h3>Real prices, no surprises</h3>
-            <p>The price you're quoted on WhatsApp is the price you pay at pickup. Deposit and terms are explained before
-              you confirm, not after.</p>
+            <h3>{t('trust1Title')}</h3>
+            <p>{t('trust1Desc')}</p>
           </div>
         </div>
 
@@ -23,9 +25,8 @@ export default function WhyChooseUs() {
             <img src="/images/trust/trust2.png" alt="Always on WhatsApp" />
           </div>
           <div className="trust-text">
-            <h3>Always on WhatsApp</h3>
-            <p>A person answers, in French, English, or Arabic — usually within minutes, not a chatbot reading from a
-              script.</p>
+            <h3>{t('trust2Title')}</h3>
+            <p>{t('trust2Desc')}</p>
           </div>
         </div>
 
@@ -34,9 +35,8 @@ export default function WhyChooseUs() {
             <img src="/images/trust/trust3.png" alt="Airport, city, or riad pickup" />
           </div>
           <div className="trust-text">
-            <h3>Airport, city, or riad pickup</h3>
-            <p>Land at Menara, walk out of your medina riad, or meet us in Gueliz — we come to wherever your trip actually
-              starts.</p>
+            <h3>{t('trust3Title')}</h3>
+            <p>{t('trust3Desc')}</p>
           </div>
         </div>
 
@@ -45,9 +45,8 @@ export default function WhyChooseUs() {
             <img src="/images/trust/trust4.png" alt="Maintained fleet" />
           </div>
           <div className="trust-text">
-            <h3>A fleet that's actually maintained</h3>
-            <p>Every car is serviced and inspected between rentals — no rolling into your holiday with a check-engine
-              light already on.</p>
+            <h3>{t('trust4Title')}</h3>
+            <p>{t('trust4Desc')}</p>
           </div>
         </div>
       </div>

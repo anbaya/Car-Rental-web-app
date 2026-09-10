@@ -1,10 +1,13 @@
+import { useTranslations } from 'next-intl';
+
 export default function HowItWorks() {
+  const t = useTranslations('HomePage.HowItWorks');
   return (
     <section>
       <div className="wrap">
         <div className="section-head reveal delay-1">
-          <h2>How a request becomes a rental</h2>
-          <p>Three steps, and a human confirms the details before anything is final.</p>
+          <h2>{t('title')}</h2>
+          <p>{t('sub')}</p>
         </div>
         <div className="steps-wrapper">
           <svg className="steps-svg reveal" viewBox="0 0 1000 100" preserveAspectRatio="none" aria-hidden="true">
@@ -13,18 +16,18 @@ export default function HowItWorks() {
           <div className="steps">
             <div className="step reveal delay-2">
               <div className="step-num">1</div>
-              <h3>Choose your car</h3>
-              <p>Filter by size, transmission, or price, and open the one that fits your trip.</p>
+              <h3>{t('step1Title')}</h3>
+              <p>{t('step1Desc')}</p>
             </div>
             <div className="step reveal delay-3">
               <div className="step-num">2</div>
-              <h3>Send a request</h3>
-              <p>Fill out a quick form with your dates and pickup spot. No payment details required.</p>
+              <h3>{t('step2Title')}</h3>
+              <p>{t('step2Desc')}</p>
             </div>
             <div className="step reveal delay-4">
               <div className="step-num">3</div>
-              <h3>Confirm on WhatsApp</h3>
-              <p>We'll message you back to confirm availability and lock in the total price.</p>
+              <h3>{t('step3Title')}</h3>
+              <p>{t('step3Desc')}</p>
             </div>
           </div>
         </div>
